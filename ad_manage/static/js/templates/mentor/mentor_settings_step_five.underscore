@@ -1,0 +1,63 @@
+<%
+//
+//    echarlie
+//
+//    Esta es la plantilla para generar los elementos del formulario de Mentor
+//    Step Five
+%>
+<div class="panel-heading border-light">
+  <ul class="panel-heading-tabs border-light">
+    <li class="visible-lg visible-md"><%- gettext(messagesData.bannerHeader) %></li>
+  </ul>
+</div>
+<p class="visible-sm visible-xs"><%- gettext(messagesData.bannerHeader) %></p>
+<h3 class="StepTitle"><%- gettext(subtitle) %></h3>
+<%- gettext(messagesData.bannerReadyPublish) %>
+
+
+  <% _.each(groups, function(group) { %>
+
+  <div class="form-group">
+    <div class="row row-centered">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-4">
+        <img data-src="holder.js/250x250" src="<%- group.image %>" class="img-circle" alt="<%- gettext(group.text) %>">
+      </div>
+      <div class="col-sm-5 mentor-welcome">
+        <% if (group.showAsTitle) { %>
+
+        <h1><%- gettext(group.text) %></h1>
+
+        <% } else { %>
+
+        <p><%- gettext(group.text) %></p>
+
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <% }); %>
+<div class="row">
+  <!--
+  <div class="col-md-2 col-sm-offset-1">
+    <button class="btn btn-echarlie-green back-step">
+    <i class="fa fa fa-arrow-circle-left"></i>
+    <%- gettext("Back") %>
+    </button>
+  </div>
+  -->
+  <div class="col-md-3 col-sm-offset-1">
+    <button class="btn btn-echarlie-green">
+    <%- gettext("Accept suggestions") %>
+    </button>
+  </div>
+  <div class="col-md-3 col-sm-offset-1">
+    <a href="http://mentor.dilosung.com" class="btn btn-echarlie-green">
+    <%- gettext("Publish your course") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </a>
+  </div>
+</div>
+

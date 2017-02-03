@@ -1,0 +1,4 @@
+<td>
+    <span class="block mentor-profile-title-info"><%- title %></span>
+    <span class="block mentor-profile-value-info" id="u-field-custom-value-<%- id %>"><%- value %></span>
+</td>

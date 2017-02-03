@@ -1,0 +1,39 @@
+<div class="content-pcourse">
+
+<h2>Ayuda a tus aprendices a tomar tu curso y ganar mas dinero</h2>
+<h3>Recursos</h3>
+<p>Explica a los aprendices como es tu curso, explica cuales son las principales atractivos de tu curso para atraer la atencion de los aprendices que quieren tomarlo</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <span class="upload-resource-program"></span>
+  </div>
+  <div class="col-md-6">
+    <span class="upload-resource-material"></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <span class="upload-resource-program-list"></span>
+  </div>
+  <div class="col-md-6">
+    <span class="upload-resource-material-list"></span>
+  </div>
+</div>
+
+</div>
+<div class="row row-bot">
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green back-step">
+    <i class="fa fa-arrow-circle-left"></i>
+    <%- gettext("Back") %>
+    </button>
+  </div>
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green publish-course">
+    <%- gettext("Publicar") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% load i18n staticfiles %}
+
+{% block styles %}
+    {{ block.super }}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inside/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/footer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/navbar_second.css' %}" />
+{% endblock %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script src="{% static 'js/home/plain_functions.js' %}"></script>
+{% endblock %}
+
+{% block second_navbar %}
+  {% include "ad_manage/partials/navbar_second.html" %}
+{% endblock %}
+
+{% block content_wrapper %}
+<div class="main-content" style="min-height:500px;margin-top:5px;">
+  <div class="panel panel-white">
+			<div class="panel-heading">
+				<h4 class="panel-title">Panel <span class="text-bold">White</span></h4>
+
+			</div>
+			<div class="panel-body">
+
+    {% if request.user.customer_profile.is_mentor %}
+
+    {% if mentor_created %}
+        {{ message }}
+        <div class="alert alert-block alert-success fade in">
+
+								<h4 class="alert-heading"><i class="fa fa-check"></i> Success!</h4>
+                <p>
+                  Duis mollis, est non commodo luctus,
+									nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                  Duis mollis, est non commodo luctus,
+									nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                  Duis mollis, est non commodo luctus,
+									nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+								</p>
+                <p>
+                  Duis mollis, est non commodo luctus,
+                  nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                  Duis mollis, est non commodo luctus,
+                  nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                  Duis mollis, est non commodo luctus,
+                  nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                </p>
+								<p>
+									<a href="{% url 'customer:summary' %}" class="btn btn-green">
+										{% trans "Complete your profile" %}
+									</a>
+									<a href="{% url 'customer:summary' %}" class="btn btn-light-grey">
+										{% trans "Create a course" %}
+									</a>
+								</p>
+					</div>
+
+        {% else %}
+        <p>
+          u tryna hacking me rite?, u know ur already a mentor, go fuck urself lol
+        </p>
+    {% endif %}
+    {% endif %}
+
+    {% if request.user.customer_profile.is_aprentice %}
+    <div class="alert alert-block alert-info fade in">
+
+                  <h4 class="alert-heading"><i class="fa fa-info"></i> {% trans "Become a mentor!" %}</h4>
+                  <p>
+                    Duis mollis, est non commodo luctus,
+                    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                    Duis mollis, est non commodo luctus,
+                    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                    Duis mollis, est non commodo luctus,
+                    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                  </p>
+                  <p>
+                    Duis mollis, est non commodo luctus,
+                    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                    Duis mollis, est non commodo luctus,
+                    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                    Duis mollis, est non commodo luctus,
+                    nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                  </p>
+                  <p>
+                    <form action="{% url 'become-mentor' %}" method="post">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-blue" name="button">Become a mentor</button>
+                    </form>
+                    </a>
+                  </p>
+                </div>
+
+
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<div class="content-pcourse">
+
+<h2>Ayuda a tus aprendices a tomar tu curso y ganar mas dinero</h2>
+<h3>Descripcion</h3>
+<p>Explica a los aprendices como es tu curso. Explica cuales son los principales atractivos de tu curso para atraer la atencion de los aprendices que quiere tomarlo</p>
+
+<span class="container-views"></span>
+
+<span class="container-views-category"></span>
+
+</div>
+<div class="row row-bot">
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green back-step">
+    <i class="fa fa-arrow-circle-left"></i>
+    <%- gettext("Back") %>
+    </button>
+  </div>
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green next-step">
+    <%- gettext("Next") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>

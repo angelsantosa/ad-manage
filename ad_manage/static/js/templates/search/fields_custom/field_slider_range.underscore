@@ -1,0 +1,12 @@
+<div class="col-md-2"><h2><%- title %></h2></div>
+<div class="col-md-10">
+  <div class="u-field-custom-slider-<%- id %>"></div>
+  <p>
+  <label for="amount">Price range:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+  <span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+      <span class="u-field-custom-message-notification" aria-live="polite"></span>
+      <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+  </span>
+</div>

@@ -1,0 +1,43 @@
+<div class="col-md-2"><h2><%- title %></h2></div>
+<div class="col-md-10">
+
+<div class="tabbable cat-tabs">
+
+  <ul id="myTab2" class="nav nav-tabs">
+    <% _.each(radioOptions, function(radioOption) { %>
+    <li class="">
+      <a href="#category-<%- radioOption[1] %>" data-toggle="tab">
+      <i class="fa <%- radioOption[2] %> fa-2x"></i><br />
+        <%- radioOption[0] %>
+      </a>
+    </li>
+<% }); %>
+  </ul>
+
+
+  <div class="tab-content">
+    <% _.each(radioOptions, function(radioOption) { %>
+    <div class="tab-pane fade" id="category-<%- radioOption[1] %>">
+      <div class="row">
+
+        <% _.each(radioOption[3], function(sub_categories) { %>
+<div class="col-md-4">
+      <label class="<%- aling_inputs %>">
+        <input type="checkbox" class="square-green" value="<%- sub_categories[0] %>" name="sub-cat">
+        <%- gettext(sub_categories[1]) %>
+      </label>
+</div>
+        <% }); %>
+      </div>
+    </div>
+    <% }); %>
+
+  </div>
+
+</div>
+
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+</span>
+</div>

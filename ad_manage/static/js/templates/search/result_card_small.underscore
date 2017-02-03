@@ -1,0 +1,25 @@
+<% _.each(resultsJ, function(result){ %>
+	<% var user = _.findWhere(usersJ, {id: result.mentor}); %>
+
+		<script type="text/html" id="card_result_<%- result.id %>">
+			<div class="text-center result-card" style="width: 260px;">
+						<div class="header-result cat-violin" style=" padding-top: 5px;height: 174px;">
+							<img class="img-circle" style="height: 120px;
+    width: 109px;" alt="A generic square placeholder image where only the portion within the circle circumscribed about said square is visible" src="http://i.imgur.com/Ny7wPWh.png" style=" height: 100px;">
+							<h3 style="
+			    height: 30px;
+			    font-size: 21px;
+			    padding: 0;
+			"><%- user.first_name %> <%- user.last_name %></h3>
+						</div>
+						<div class="description">
+									<p style="
+			    color: gray;
+			    font-weight: bold;
+			"><%- result.course_name %></p>
+									<h6><%- result.location_state %>, <%- result.location_city %></h6>
+
+						</div>
+					</div>
+				</script>
+<% }); %>

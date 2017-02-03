@@ -1,0 +1,43 @@
+<%inherit file="/main.html" />
+<%namespace name='static' file='/static_content.html'/>
+<%!
+import json
+from django.core.urlresolvers import reverse
+from django.conf import settings
+from django.utils.translation import ugettext as _
+from microsite_configuration import microsite
+from openedx.core.lib.js_utils import escape_json_dumps
+%>
+
+<%block name="pagetitle">${_("Mentor Settings")}</%block>
+<%block name="nav_skip">#content</%block>
+
+% if duplicate_provider:
+    <section>
+        <%include file='/dashboard/_dashboard_third_party_error.html' />
+    </section>
+% endif
+
+<div class="message-banner" aria-live="polite"></div>
+<div class="wrapper-mentor-settings container-clear">
+    <div class="ui-loading-indicator">
+        <p><span class="spin"><i class="icon fa fa-refresh" aria-hidden="true"></i></span> <span class="copy">${_("Loading")}</span></p>
+    </div>
+</div>
+
+<%block name="headextra">
+    <%static:css group='style-course'/>
+</%block>
+
+<%block name="js_extra">
+<%static:require_module module_name="js/mentor/views/mentor_settings_factory" class_name="MentorSettingsFactory">
+    var fieldsData = ${ json.dumps(fields) };
+    var authData = ${ json.dumps(auth) };
+    var options = ${ json.dumps(options) };
+    var platformName = ${ json.dumps(microsite.get_value('platform_name', settings.PLATFORM_NAME))};
+
+    MentorSettingsFactory(
+        fieldsData, authData, options, '${user_accounts_api_url}', '${user_preferences_api_url}', ${user.id}, platformName
+    );
+</%static:require_module>
+</%block>

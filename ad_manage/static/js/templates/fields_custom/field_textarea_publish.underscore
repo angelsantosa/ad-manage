@@ -1,0 +1,22 @@
+<% if (showHeader) { %>
+<h4 class="u-field-custom-title" for="u-field-custom-textarea-<%- id %>">
+    <%- title %>
+</h4>
+<% } else { %>
+<label class="u-field-custom-title" for="u-field-custom-textarea-<%- id %>">
+    <%- title %>
+</label>
+<% } %>
+<span class="u-field-custom-value">
+    <textarea class="form-control" id="u-field-custom-textarea-<%- id %>"
+                      placeholder="<%- placeholder %>"
+                      rows="4"
+            <% if (message) { %>
+                aria-describedby="u-field-message-help-<%- id %>"
+            <% } %>
+            ><%- value %></textarea>
+</span>
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+</span>

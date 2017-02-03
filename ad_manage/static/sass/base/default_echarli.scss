@@ -1,0 +1,123 @@
+body {
+    /*padding-top: 76px;*/
+    
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $grey;
+
+}
+footer{
+	min-height: 420px;
+    padding: 50px 0;
+    background: url("/static/images/echarli/background_footer.png") center;
+    background-size: cover;
+}
+.echarli-main{
+	color: $ebody;
+}
+.btn-green-echarli {
+    color: $white;
+    background-color: $egreen;
+    border-color: #ccc;
+    text-transform: uppercase ;
+    font-weight: bold;
+}
+.navbar-echarlinside {
+    .navbar-nav {
+    // Remove background color from open dropdown
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $navbar-default-link-active-bg;
+        color: $navbar-default-link-active-color;
+      }
+    }
+
+    @media (max-width: $grid-float-breakpoint-max) {
+      // Dropdowns get custom display when collapsed
+      .open .dropdown-menu {
+        > li > a {
+          color: $white;
+          &:hover,
+          &:focus {
+            color: $white;
+            background-color: $menu-navbar !important;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $white;
+            background-color: $navbar-default-link-active-bg;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: $white;
+            background-color: $menu-navbar !important;
+          }
+        }
+      }
+    }
+}
+      // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+    color: $white;
+    background-color: $menu-navbar !important;
+    border: unset;
+    }
+  }
+      .dropdown > a{
+        &,
+        &:hover,
+        &:focus{
+    color: $white !important;
+    background-color: $menu-navbar !important;
+    border: unset;
+    }
+}
+  // Uncollapse the nav
+  @media (min-width: $grid-float-breakpoint) {
+    > li {
+      > a {
+        padding-top:   27.5px ;
+        padding-bottom: 27.5px;
+        border-left: 3px solid $egreen;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.navbar {
+    margin-bottom: unset;
+
+}
+.second-menu{
+    min-height: 55px;
+    background-color: $second-menu-color;
+}
+
+.form-login {
+  .input-icon i {
+    color: $egreen;
+  }
+  .section-title h2 {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+    text-align: center;
+    text-transform: none;
+    margin: 0;
+    letter-spacing: normal;
+    font-size: 18px;
+    line-height: 26.64px;
+  }
+}

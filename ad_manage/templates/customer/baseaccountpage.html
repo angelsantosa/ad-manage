@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load i18n staticfiles %}
+
+{% block styles %}
+    {{ block.super }}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inside/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/footer.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/navbar_second.css' %}" />
+{% endblock %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script src="{% static 'js/home/plain_functions.js' %}"></script>
+{% endblock %}
+
+
+{% block title %}
+    {{ page_title }} | {% trans 'Account' %} | {{ block.super }}
+{% endblock %}
+
+{% block second_navbar %}
+  {% include "ad_manage/partials/navbar_second.html" %}
+{% endblock %}
+
+    {% block content_wrapper %}
+<div class="main-content" style="min-height:500px;margin-top:5px;">
+<div class="panel panel-white">
+	<div class="panel-heading">
+		<h4 class="panel-title">Panel <span class="text-bold">White</span></h4>
+
+	</div>
+	<div class="panel-body">
+    {% block tabcontent %}{% endblock tabcontent %}
+  </div>
+</div>
+</div>
+
+{% endblock %}

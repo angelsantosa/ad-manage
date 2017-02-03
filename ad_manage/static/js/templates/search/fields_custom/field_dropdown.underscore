@@ -1,0 +1,25 @@
+<% if (showHeader) { %>
+<h4 class="u-field-custom-title" for="u-field-custom-input-<%- id %>">
+    <%- title %>
+</h4>
+<% } else { %>
+<label class="u-field-custom-title" for="u-field-custom-input-<%- id %>">
+    <%- title %>
+</label>
+<% } %>
+
+<span class="u-field-custom-value">
+    <select name="select" id="u-field-custom-select-<%- id %>" aria-describedby="u-field-custom-message-<%- id %>" class="form-control">
+        <% if (showBlankOption) { %>
+            <option value=""></option>
+        <% } %>
+        <% _.each(selectOptions, function(selectOption) { %>
+            <option value="<%- selectOption[0] %>"><%- selectOption[1] %></option>
+        <% }); %>
+    </select>
+</span>
+
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+</span>

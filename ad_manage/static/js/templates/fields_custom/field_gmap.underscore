@@ -1,0 +1,31 @@
+<div class="mentor-section-information profile-section-four-fields">
+<% if (showTitle) { %>
+    <div class="col-sm-12">
+        <h1><%- gettext("Location") %></h1>
+    </div>
+    <div class="col-sm-3 text-center">
+        <i class="fa fa-map-marker fa-4x color-echarli"></i>
+    </div>
+    <div class="col-sm-9">
+        <table class="mentor-table-information">
+            <tr>
+                <td>
+                    <span class="block mentor-profile-title-info"><%- gettext("Approximate location") %></span>
+                    <span class="block mentor-profile-value-info"><%- state %>, <%- country %></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+<% } %>
+    <div class="col-sm-12 fix-map-profile">
+        <div class="mentor-location-map">
+            <div class="gmap-wrapper">
+            </div>
+            <span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+                <span class="u-field-custom-message-notification" aria-live="polite"></span>
+                <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+            </span>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="fileupload fileupload-new home">
+    <h4 class="subsection-title"><%- title %></h4>
+    <a class="u-field-upload-button btn btn-file go-button">
+        <span class="fileupload-new upload-button-title" aria-live="polite"><%= uploadButtonTitle %></span>
+        <i class="fa <%= uploadButtonIcon %> upload-button-icon" aria-hidden="true"></i>
+        <input id="document-file-upload-<%- id %>" class="upload-button-input"
+               name="<%- id %>" type="file"
+            <% if (extensions) { %>
+              accept="<%- extensions %>"
+            <% } %>
+        />
+    </a>
+</div>

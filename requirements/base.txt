@@ -1,0 +1,72 @@
+# Wheel 0.25+ needed to install certain packages on CPython 3.5+
+# like Pillow and psycopg2
+# See http://bitly.com/wheel-building-fails-CPython-35
+# Verified bug on Python 3.5.1
+wheel==0.29.0
+
+# Bleeding edge Django
+django-oscar==1.2.1
+# Django oscar instala dependencias  (se listan en oscar-dps.txt)
+# que incluyen django y hystack por listar algunas
+
+# Configuration
+django-environ==0.4.0
+
+# Forms
+django-braces==1.9.0
+django-crispy-forms==1.6.0
+django-floppyforms==1.6.2
+
+# Models
+django-model-utils==2.5
+
+# Images
+Pillow==3.2.0
+
+# Python-PostgreSQL Database Adapter
+psycopg2==2.6.1
+
+# Unicode slugification
+unicode-slugify==0.1.3
+django-autoslug==1.9.3
+
+# Time zones support
+pytz==2016.4
+
+#country support
+django-countries==3.4.1
+
+# Redis support
+django-redis==4.4.3
+redis>=2.10.0
+
+# Your custom requirements go here
+elasticsearch>=1.3, <2.0
+
+#Social Auth
+python-social-auth==0.2.19
+
+#Others
+django-compressor==2.0
+django-widget-tweaks==1.4.1
+djangorestframework==3.3.3
+django-messages==0.5.3
+mkdocs==0.15.3
+
+django-oscar-api==1.0.4
+django-oscar-paypal==0.9.7
+django-oscar-accounts==0.3
+
+#To load https
+ndg-httpsclient==0.4.1
+Werkzeug==0.11.10
+pyasn1==0.1.9
+pyOpenSSL==16.0.0
+cryptography==1.4
+django-extensions==1.6.7
+path.py==8.2.1
+
+geopy==1.11.0
+drf-haystack==1.5.6
+
+django-jsonify==0.3.0

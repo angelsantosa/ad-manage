@@ -1,0 +1,76 @@
+<%
+//
+//    echarlie
+//
+//    Esta es la plantilla para generar los elementos del formulario de Mentor
+//
+%>
+<% if (userIsAprentice) { %>
+
+<div class="row become-mentor-text">
+  <div class="col-md-12">
+    <h1>Terminos y condiciones</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer iaculis magna in diam ultrices luctus. Sed ut lorem viverra sapien porttitor cursus sit amet eu metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque dignissim ex at faucibus bibendum. Pellentesque finibus faucibus mauris, a faucibus sem. Sed nisl leo, tempus et lectus eu, molestie posuere elit. Ut semper velit quis nulla mollis tincidunt. Nulla eu nisl id est mollis vehicula vel at massa. Nulla odio dui, eleifend quis ligula in, malesuada dapibus odio. In malesuada lorem mi, id viverra orci facilisis at. Curabitur euismod nibh vel magna porta, nec tincidunt nisi eleifend.</p>
+    <p>Duis rhoncus consectetur neque, nec pulvinar urna rutrum ac. Morbi porttitor turpis vitae sem viverra facilisis. Fusce turpis sapien, vehicula dignissim posuere in, vehicula id mauris. Curabitur luctus ligula a venenatis laoreet. Maecenas pharetra libero id pulvinar pulvinar. Curabitur vehicula urna massa, at convallis dolor dictum vel. Sed eu nunc a augue lacinia rhoncus non in nisi. Quisque quis imperdiet elit. Vestibulum nibh nisi, eleifend sit amet ex fermentum, pharetra placerat nisi.</p>
+    <p>Vivamus a mollis metus. Vestibulum eu nulla accumsan leo tempor aliquam in in mauris. Suspendisse luctus, libero vel blandit porta, tortor ante vulputate quam, et sagittis sapien quam at leo. Donec porttitor ut justo ac sollicitudin. Phasellus in dolor ex. Aliquam dignissim, justo at finibus venenatis, arcu mi pharetra ipsum, vel vestibulum nibh mi et erat. Etiam libero est, dignissim eget lorem varius, dignissim convallis nibh.</p>
+    <p>Nullam cursus lobortis tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec mattis quis ipsum a sollicitudin. Proin aliquam arcu ut mauris sodales facilisis et quis nunc. Vivamus et turpis auctor, dapibus arcu vel, convallis ligula. Mauris nec vulputate urna. Ut id rhoncus mi. Duis nisi tortor, feugiat ac euismod quis, varius vel purus. Nullam sodales dapibus urna, at feugiat mi ultrices at. Phasellus sed dapibus leo. Proin bibendum purus nibh, eget finibus est euismod a. Etiam vitae vehicula augue, a laoreet arcu. Pellentesque eu ante non ligula condimentum tristique quis dapibus nulla. Sed vel sapien eu metus hendrerit vulputate ac ut enim. Ut molestie mollis purus sit amet convallis.</p>
+    <p>Proin vulputate ligula neque, nec tempus nisi aliquet sit amet. Sed sed ex eget justo semper efficitur. Mauris ac augue elementum, ultrices turpis ut, mattis sapien. Nulla iaculis in nisi sit amet luctus. Vestibulum fringilla felis eget ex cursus, nec pharetra quam eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris vitae ultricies tortor, id eleifend dolor. Nullam interdum lectus eleifend cursus finibus. Mauris sed risus dui.</p>
+    <div class="row"><a class="become-mentor-button">Convertirme en Mentor</a></div>
+  </div>
+</div>
+
+<% } %>
+
+<!-- start: MENTOR PROFILE PANEL -->
+  <div class="row <% if (userIsAprentice) { %>hidden<% } %>">
+    <div class="col-md-12">
+      <div class="panel panel-white">
+        <div class="panel-body">
+          <div role="form" class="smart-wizard form-horizontal" id="form">
+            <div id="wizard" class="swMain">
+                <!-- start: FORM WIZARD NAVIGATION PANEL -->              
+                <button class="btn btn-echarlie-green back-step e-back">
+                  <i class="fa fa-arrow-circle-left"></i>
+                </button>
+                <button class="btn btn-echarlie-green next-step e-next pull-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </button>
+                  
+                <ul class="anchor">
+                <% _.each(sections, function(section) { %>
+
+                  <li>
+                    <span class="stepDesc spepDescTop hidden-xs">
+                      <%- gettext(section.title) %>
+                    </span>
+                    <a href="#step-<%- section.step %>" class="<%- section.class %>" isdone="1" rel="<%- section.step %>">  
+                      <div class="stepNumber">
+                        <%- section.step %>
+                      </div>
+                    </a>
+                  </li>
+                <% }); %>
+                </ul>
+                <!-- end: FORM WIZARD NAVIGATION PANEL -->
+
+              <div class="stepContainer view-profile-echarli">
+                  <% _.each(sections, function(section) { %>
+                      <!-- start: STEP <%- section.stepName %> -->
+                    <div id="step-<%- section.step %>" class="mentor-wizard-section-body">
+                    </div>
+                      <!-- end: STEP <%- section.stepName %> -->
+                    <% }); %>
+                    <p class="mentorSettingsFooter"><%- gettext(messagesData.bannerFooter) %></p>
+              </div>  
+                <!-- end: FORM WIZARD PANEL -->
+            </div>
+          </div>
+        </div>
+     </div>
+     <div class="ui-loading-error is-hidden">
+        <i class="fa fa-exclamation-triangle message-error" aria-hidden=true></i>
+        <span class="copy"><%- gettext("An error occurred. Please reload the page.") %></span>
+    </div>
+    </div>
+  </div>
+<!-- end: MENTOR PROFILE PANEL -->

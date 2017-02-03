@@ -1,0 +1,382 @@
+<div class="content-wrapper" id="content">
+  <div class="wrapper-profile">
+    <div class="profile profile-self">
+      <div class="wrapper-profile-sections account-settings-container">
+        
+        <div class="row">
+          <div class="col-sm-8"><br><br><br>
+          	<form action="#" role="form" class="smart-wizard form-horizontal" id="form">
+              <p>${_("Help to your learners to take a course and earn more money")}</p><br>
+              
+
+              <div id="wizard" class="swMain">
+                    <ul class="anchor hidden">
+                      <li>
+                        <span class="stepDesc"> 
+                          <br>
+                          <small>&nbsp;</small>
+                        </span>
+                        <a href="#step-1" class="selected" isdone="0" rel="1">
+                          <div class="stepNumber">
+                            1
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <span class="stepDesc">
+                          <br>
+                          <small>&nbsp;</small>
+                        </span>
+                        <a href="#step-2" class="disabled" isdone="0" rel="2">
+                          <div class="stepNumber">
+                            2
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <span class="stepDesc"> Step 3
+                          <br>
+                          <small>&nbsp;</small> 
+                        </span>
+                        <a href="#step-3" class="disabled" isdone="0" rel="3">
+                          <div class="stepNumber">
+                            3
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <span class="stepDesc"> Step 4
+                          <br>
+                          <small>&nbsp;</small> 
+                        </span>
+                        <a href="#step-4" class="disabled" isdone="0" rel="4">
+                          <div class="stepNumber">
+                            4
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+
+
+              <div class="panel panel-white">
+                
+                <div class="panel-heading border-light">
+                  <ul class="panel-heading-tabs border-light">
+                    <li class="panel-heading-tabs-echarli"><b>${_("Description")}</b></li>
+	                <li></li>
+	              </ul>
+                </div>
+                <div class="panel-body">
+                  <div class="stepContainer" style="height: 353px;">
+                    
+                    <div id="step-1" class="" style="display: block;">
+                      <p class="StepTitle" style="color: #858585; font-size:14px;">
+                      	${_("Explain to learners how is your course, explain what are the main likes of your course to get attention of learners that want to take it.")}</p><br>
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label for="course_name">
+                            ${_("Course's name")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Write the title of the course")}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <label for="describe">
+                            ${_("Course's description")}
+                          </label>
+                          <textarea class="form-control" id="describe" name="describe" placeholder="${_("Write a description of your course")}" style="resize:none; height:100px;"></textarea>
+                        </div>
+                      </div>  
+                      <div class="form-group">
+                        <div class="col-sm-6">
+                          <label for="category">
+                            ${_("Category")}
+                          </label>
+                          
+						  <select id="category" class="form-control">
+						    <option value="">&nbsp;</option>
+						    <option value="AL">Artes</option>
+						    <option value="AK">TI</option>
+						    <option value="AK">Idiomas</option>
+						  </select>
+                        </div>
+                      </div><br><br><br><br><br><br><br>
+                      <div class="form-group">
+						<div class="col-sm-2 col-sm-offset-5">
+						  <button class="btn btn-blue next-step btn-block">
+							${_("Next Step")}<i class="fa fa-arrow-circle-right"></i>
+						  </button>
+						</div>
+					  </div>  
+				    </div>
+
+
+				    <div id="step-2" class="" style="display: block;">
+                      <p class="StepTitle" style="color: #858585; font-size:14px;">
+                        ${_("Learners can select some filters about characteristics of your course, you must be more descriptive to have many learners. Remember, the more details you provide to learners, they will be the best for your COURSE.")}</p><br>
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <label for="course_name">
+                            ${_("Types of Course")}
+                            <p style="font-size:12px;">${_("Select")}</p>
+                          </label>
+                          
+            							
+                          <div class="btn-group">
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Individual Presence")}
+                            </a>
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Colective Presence")}
+                            </a>
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Skype Remotely")}<br>
+                              ${_("or another means")}
+                            </a>
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Online (Videos)")}
+                            </a>
+                          </div>
+                                
+										
+						
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Minimal learners")}">
+                        </div>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Maximum learners")}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <label for="form-field-select-4">
+                              ${_("Program level")}
+                              <p style="font-size:12px;">${_("Select")}</p>
+                          </label>
+                          <a href="#" id="tags" data-type="select2" data-pk="1" data-original-title="Enter tags" class="form-control search-select">
+                            ${_("Basic - Level 1")}, ${_("Intermediate- Level 2")}, ${_("Advanced - Level 3")}, ${_("Expert - Level 4")}
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <label for="calendar2">
+                              ${_("Duration, Days and Schedule")}
+                              <p style="font-size:12px;">${_("Select CALENDAR")}</p>
+                          </label>
+                          <div class="input-group" id="calendar2">
+                            <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+                            <input type="text" class="form-control date-range">
+                          </div><br>
+                          <a href="#" id="tags" data-type="select2" data-pk="1" data-original-title="Enter tags" class="form-control search-select day-select">
+                            ${_("MONDAY")}, ${_("TUESDAY")}, ${_("WEDNESDAY")}, ${_("THURSDAY")}, ${_("FRIDAY")}, ${_("SATURDAY")}, ${_("SUNDAY")}
+                          </a>
+                          
+                        </div>
+                      </div>
+
+                      
+
+
+                      <br><br><br><br><br><br><br>
+                      <div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3">
+						  <button class="btn btn-light-grey back-step btn-block">
+						    <i class="fa fa-circle-arrow-left"></i> Back
+						  </button>
+						</div>
+						<div class="col-sm-2 col-sm-offset-1">
+						  <button class="btn btn-blue next-step btn-block">
+						    Next <i class="fa fa-arrow-circle-right"></i>
+						  </button>
+						</div>
+					  </div>
+				    </div>
+
+
+				    <div id="step-3" class="" style="display: block;">
+                      <p class="StepTitle" style="color: #858585; font-size:14px;">Explain to learners how is your course, explain what are the main likes of your course to get attention of learners that want to take it.</p><br>
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <label for="course_name">
+                            ${_("Location")}
+                            <p style="font-size:12px;">${_("Select")}</p>
+                          </label>
+                          
+                          
+                          <div class="btn-group">
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Provided by the student")}
+                            </a>
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Provided by the teacher")}
+                            </a>
+                            <a class="btn btn-default" href="javascript:;">
+                              ${_("Public place")}
+                            </a>
+                          </div>
+                                
+                    
+            
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Add location")}">
+                        </div>
+                      </div>  
+
+                      <div class="form-group">
+                        <div class="col-sm-6">
+                          <label for="category">
+                            ${_("COUNTRY")}
+                          </label>
+                          
+            						  <select id="category" class="form-control">
+            						    <option value="">&nbsp;</option>
+            						    <option value="AL">Mexico</option>
+            						    <option value="AK">USA</option>
+            						    <option value="AK">Germany</option>
+            						  </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label for="category">
+                            ${_("STREET")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Name of the street")}">
+                        </div>
+                        <div class="col-sm-2">
+                          <label for="category">
+                            ${_("Ext. Num")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Number")}">
+                        </div>
+                        <div class="col-sm-2">
+                          <label for="category">
+                            ${_("Int. Num")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Number")}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label for="category">
+                            ${_("COLONY")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Name of the colony")}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label for="category">
+                            ${_("CITY")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Name of the city")}">
+                        </div>
+                      </div>  
+
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label for="category">
+                            ${_("PROVINCE")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Name of the province")}">
+                        </div>
+                        <div class="col-sm-4">
+                          <label for="category">
+                            ${_("POSTAL CODE")}
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="${_("Postal code number")}">
+                        </div>
+                      </div> 
+
+
+
+
+                      <br><br><br><br><br><br><br>
+                      <div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3">
+						  <button class="btn btn-light-grey back-step btn-block">
+						    <i class="fa fa-circle-arrow-left"></i> Back
+						  </button>
+						</div>
+						<div class="col-sm-2 col-sm-offset-1">
+						  <button class="btn btn-blue next-step btn-block">
+						    Next <i class="fa fa-arrow-circle-right"></i>
+						  </button>
+						</div>
+					  </div>
+				    </div>
+
+
+				    <div id="step-4" class="" style="display: block;">
+                      <p class="StepTitle" style="color: #858585; font-size:14px;">Explain to learners how is your course, explain what are the main likes of your course to get attention of learners that want to take it.</p><br>
+                      <div class="form-group">
+                        <div class="col-sm-8">
+                          <label for="course_name">
+                            Course's name
+                          </label>
+                          <input type="text" class="form-control" id="username" name="username" placeholder="Write the title of the course">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <label for="describe">
+                            Course's description
+                          </label>
+                          <textarea class="form-control" id="describe" name="describe" placeholder="Write a description of your course" style="resize:none; height:100px;"></textarea>
+                        </div>
+                      </div>  
+                      <div class="form-group">
+                        <div class="col-sm-6">
+                          <label for="category">
+                            Category
+                          </label>
+                          
+						  <select id="category" class="form-control">
+						    <option value="">&nbsp;</option>
+						    <option value="AL">Artes</option>
+						    <option value="AK">TI</option>
+						    <option value="AK">Idiomas</option>
+						  </select>
+                        </div>
+                      </div><br><br><br><br><br><br><br>
+                      <div class="form-group">
+						<div class="col-sm-2 col-sm-offset-5">
+						  <button class="btn btn-success finish-step btn-block">
+							Finish <i class="fa fa-arrow-circle-right"></i>
+						  </button>
+						</div>
+					  </div>
+				    </div>
+
+                  </div>
+                </div>
+
+              </div>
+	          
+            </form>
+            
+            </div>
+
+          </div>          
+          <div class="col-sm-4" style="background-color:#87888C; height:1300px;"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

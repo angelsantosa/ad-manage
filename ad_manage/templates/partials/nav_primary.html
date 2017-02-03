@@ -1,0 +1,57 @@
+{% load i18n staticfiles %}
+<nav class="col-md-9 col-sm-9 col-xs-9">
+    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+    <div class="main-menu">
+        <div id="header_menu">
+            <img src="{% static 'img/logo_sticky.png' %}" width="160" height="34" alt="eCharli" data-retina="true">
+        </div>
+        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+        <ul>
+          <li class="submenu">
+            {% if user.customer_profile.is_mentor %}
+                <a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Create a course" %}</a>
+                {% else %}
+                <a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Become a mentor" %}</a>
+            {% endif %}
+
+          </li>
+          {% if user.is_authenticated %}
+           <li class="submenu">
+                   {# If user has new notifications - we change account link to go to inbox #}
+                   <a href="{% url 'customer:notifications-inbox' %}">
+                       <i class="fa fa-envelope"></i>
+                       {% trans "Messages" %}
+                       {% if num_unread_notifications > 0 %}
+                       <span class="badge bg-lightred">{{ num_unread_notifications }}</span>
+                       {% endif %}
+                   </a>
+           </li>
+           <li class="submenu">
+               <a href="javascript:void(0);" class="show-submenu"><i class="icon-help-1"></i> {% trans "Help" %}</a>
+           </li>
+           <li class="submenu">
+           <a href="{% url 'customer:summary' %}"><i class="icon-user-1"></i> {{ user.get_full_name }}</a>
+           </li>
+           <li class="submenu">
+            <a href="{% url 'customer:logout' %}"><i class="fa fa-sign-out"></i></a>
+           </li>
+       {% else %}
+       <li class="submenu">
+           <a href="javascript:void(0);" class="show-submenu"><i class="icon-help-1"></i> {% trans "Help" %}</a>
+       </li>
+       <li class="submenu">
+           <a href="{% url 'customer:register' %}" class="show-submenu" ><i class="icon-user-1"></i> {% trans "Register" %}</a>
+       </li>
+         <li class="submenu">
+           <a href="{% url 'customer:login' %}" class="show-submenu"><i class="icon-login"></i> {% trans "Log in" %}</a>
+       </li>
+       {% endif %}
+        </ul>
+    </div><!-- End main-menu -->
+</nav>
+{% comment %}
+if user.is_staff or perms.partner.dashboard_access
+   <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>
+   <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>
+endif
+{% endcomment %}

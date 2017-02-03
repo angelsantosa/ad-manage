@@ -1,0 +1,80 @@
+<%
+//
+//    echarlie
+//
+//    Esta es la plantilla para generar los elementos del formulario de Mentor
+//    Step One
+%>
+<div class="panel-heading border-light">
+  <ul class="panel-heading-tabs border-light">
+    <li class="panel-heading-tabs-echarli"><%- gettext(title) %></li>
+    <li class="visible-lg visible-md"><%- gettext(messagesData.bannerHeader) %></li>
+  </ul>
+</div>
+<p class="visible-sm visible-xs"><%- gettext(messagesData.bannerHeader) %></p>
+<h3 class="StepTitle"><%- gettext(subtitle) %></h3>
+
+<div class="row">
+  <div class="left col-md-6">
+    <span class="mentor-username"></span>
+    <span class="mentor-fullname"></span>
+  </div>
+  <div class="right col-md-6">
+    <span class="profile-image-field mentor-avatar"></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="left col-md-6">
+    <span class="mentor-email"></span>
+    <span class="mentor-password"></span>
+  </div>
+  <div class="right col-md-6">
+    <span class="mentor-date-of-birthday"></span>
+    <!--<span class="mentor-birthday"></span>-->
+    <span class="mentor-gender"></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="center col-md-12">
+    <span class="mentor-bio"></span>
+  </div>
+</div>
+
+<h3 class="StepTitle"><%- gettext("Address") %> <i class="fa fa-home fa-lg"></i></h3>
+
+<div class="row">
+  <div class="left col-md-6">
+    <span class="mentor-country"></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="left col-md-6">
+    <span class="mentor-adress-1"></span>
+    <div class="row">
+      <div class="col-md-6">
+        <span class="mentor-outdoor-number"></span>
+      </div>
+      <div class="col-md-6">
+        <span class="mentor-internal-number"></span>
+      </div>
+    </div>
+    <span class="mentor-state"></span>
+  </div>
+
+  <div class="right col-md-6">
+    <span class="mentor-adress-2"></span>
+    <span class="mentor-postal-code"></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3 col-md-offset-4">
+    <button class="btn btn-echarlie-green next-step e-next">
+    <%- gettext("Next") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<%inherit file="/main.html" />
+<%namespace name='static' file='/static_content.html'/>
+<%!
+import json
+from django.core.urlresolvers import reverse
+from django.conf import settings
+from django.utils.translation import ugettext as _
+from microsite_configuration import microsite
+from openedx.core.lib.js_utils import escape_json_dumps
+%>
+
+<%block name="pagetitle">${_("Publish a Course")}</%block>
+<%block name="bodyclass">view-profile</%block>
+<%block name="nav_skip">#content</%block>
+
+
+% if duplicate_provider:
+    <section>
+        <%include file='/dashboard/_dashboard_third_party_error.html' />
+    </section>
+% endif
+<div class="message-banner" aria-live="polite"></div>
+<div class="wrapper-publish container-fluid">
+</div>
+
+<%block name="headextra">
+    <%static:css group='style-course'/>
+</%block>
+
+<%block name="js_extra">
+<%static:require_module module_name="js/publish/views/publish_factory" class_name="PublishFactory">
+    var platformName = ${ json.dumps(microsite.get_value('platform_name', settings.PLATFORM_NAME))};
+    var siteName = ${ json.dumps(microsite.get_value('site_name', settings.SITE_NAME))};
+    var resourcesData = ${ json.dumps(resources) };
+    var fieldsData = ${ json.dumps(fields) };
+
+    PublishFactory(
+	    resourcesData, fieldsData, platformName, siteName, '${user_publish_course_api_url}', '${user.id}'
+    );
+</%static:require_module>
+</%block>

@@ -1,0 +1,16 @@
+<h4><%- title %></h4>
+
+<% if (title && titleVisible) { %>
+    <label class="u-field-custom-title">
+        <%- gettext("Select") %>
+    </label>
+<% } %>
+
+<div class="u-field-custom-slider-<%- id %>"></div>
+
+<div class="u-field-custom-slider-output"></div>
+
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+</span>

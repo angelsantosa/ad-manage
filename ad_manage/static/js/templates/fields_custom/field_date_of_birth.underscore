@@ -1,0 +1,18 @@
+<% if (title) { %>
+    <label class="u-field-custom-title" for="u-field-custom-dob-<%- id %>">
+        <%- gettext(title) %>
+    </label>
+<% } else { %>
+    <label class="sr" for="u-field-custom-dob-<%- id %>">
+        <%- screenReaderTitle %>
+    </label>
+<% } %>
+
+<div class="u-field-custom-dob" id="u-field-custom-dob-<%- id %>"></div>
+
+<% if (message) { %>
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+</span>
+<% } %>

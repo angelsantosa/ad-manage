@@ -1,0 +1,86 @@
+{% load i18n staticfiles %}
+<section id="header" class="scheme-light header-scheme" data-scheme="scheme-light">
+<header class="clearfix">
+<!-- Branding -->
+<div class="branding">
+    <a class="brand" href="{{ homepage_url }}">
+    </a>
+</div>
+<!-- Branding end -->
+<!-- Search -->
+<div class="search" id="main-search">
+    <input type="text" class="form-control underline-input" placeholder="{% trans "Search..." %}">
+</div>
+<!-- Search end -->
+<!-- Right-side navigation -->
+<ul class="nav-right pull-right list-inline">
+    <li class="dropdown users divided-right">
+
+        <p href class="mt-10 mb-0">
+          {% if user.customer_profile.is_mentor %}
+              <a href="{% url 'become-mentor' %}" class="btn btn-green btn-sm mb-10">{% trans "Create a course" %}</a>
+              {% else %}
+              <a href="{% url 'become-mentor' %}" class="btn btn-green btn-sm mb-10">{% trans "Become a mentor" %}</a>
+          {% endif %}
+        </p>
+
+    </li>
+    <li class="messages divided-right">
+        <a href="{% url 'customer:notifications-inbox' %}" class="hidden-xs">{% trans "Messages" %}</a>
+
+        <a href="{% url 'customer:notifications-inbox' %}">
+            <i class="fa fa-envelope"></i>
+            {% if num_unread_notifications > 0 %}
+            <span class="badge bg-lightred">{{ num_unread_notifications }}</span>
+            {% endif %}
+        </a>
+
+    </li>
+    <li class="notifications divided-right">
+        <a href="#" class="hidden-xs">{% trans "Help" %}</a>
+        <a href="#" >
+            <i class="icon-help-1"></i>
+        </a>
+    </li>
+
+    <li class="dropdown nav-profile">
+
+        <a href class="dropdown-toggle" data-toggle="dropdown">
+            <img src="{{ user.customer_profile.get_avatar }}" alt="" class="img-circle size-30x30">
+            <span>{{ user.get_full_name }} <i class="fa fa-angle-down"></i></span>
+        </a>
+
+        <ul class="dropdown-menu animated littleFadeInRight" role="menu">
+            <li>
+                <a href="{% url 'customer:summary' %}">
+                    <span class="badge bg-greensea pull-right">!</span>
+                    <i class="fa fa-user"></i> {% trans "Profile" %}
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'customer:summary' %}">
+                    <i class="fa fa-puzzle-piece"></i>{% trans "Dashboard" %}
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'customer:wishlists-list' %}"><i class="fa fa-gift"></i>{% trans "Whishlist" %}
+                </a>
+            </li>
+
+            <li class="divider"></li>
+            <li>
+                <a href="{% url 'customer:logout' %}">
+                    <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="toggle-right-sidebar">
+        <a href="#">
+            <i class=""></i>
+        </a>
+    </li>
+</ul>
+</ul>
+</header>
+</section>

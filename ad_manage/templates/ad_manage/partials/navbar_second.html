@@ -1,0 +1,39 @@
+{% load i18n staticfiles %}
+<div class="page-header ">
+<div class="page-header-menu">
+<div class="container">
+<div class="hor-menu hor-menu-light">
+<ul class="nav navbar-nav">
+  <li class=" {% if active_tab == 'panel' %}active{% endif %}">
+      <a href="{% url 'customer:profile-view' %}">{% trans "Panel" %}</a>
+  </li>
+  <li class=" {% if active_tab == 'profile' %}active{% endif %}">
+      <a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a>
+  </li>
+  <li class=" {% if active_tab == 'orders' %}active{% endif %}">
+      <a href="{% url 'customer:order-list' %}">{% trans "Your Courses" %}</a>
+  </li>
+  <li class=" {% if active_tab == 'wishlists' %}active{% endif %}">
+      <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
+  </li>
+  <li class=" {% if active_tab == 'addresses' %}active{% endif %}">
+      <a href="{% url 'customer:address-list' %}">{% trans "Address Book" %}</a>
+  </li>
+  <li class=" {% if active_tab == 'emails' %}active{% endif %}">
+      <a href="{% url 'customer:email-list' %}">{% trans "Email History" %}</a>
+  </li>
+  {% comment %}
+  <li class=" {% if active_tab == 'alerts' %}active{% endif %}">
+      <a href="{% url 'customer:alerts-list' %}">{% trans "Product Alerts" %"</a>
+  </li>
+  {% endcomment %}
+  <li class=" {% if active_tab == 'notifications' %}active{% endif %}">
+      <a href="{% url 'customer:notifications-inbox' %}">{% trans "Notifications" %}</a>
+  </li>
+       </ul>
+   </li>
+</ul>
+</div>
+</div>
+</div>
+</div>

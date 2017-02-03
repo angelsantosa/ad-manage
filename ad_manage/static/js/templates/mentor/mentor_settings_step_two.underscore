@@ -1,0 +1,92 @@
+<%
+//
+//    echarlie
+//
+//    Esta es la plantilla para generar los elementos del formulario de Mentor
+//    Step Two
+%>
+
+<div class="panel-heading border-light">
+  <ul class="panel-heading-tabs border-light">
+    <li class="panel-heading-tabs-echarli"><%- gettext(title_group_one) %></li>
+    <li class="visible-lg visible-md"><%- gettext(messagesData.bannerHeader) %></li>
+  </ul>
+</div>
+<p class="visible-sm visible-xs"><%- gettext(messagesData.bannerHeader) %></p>
+<h3 class="StepTitle"><%- gettext(subtitle_group_one) %></h3>
+
+<div class="form-group">
+  <div class="col-sm-7">
+  </div>
+  <div class="col-sm-3">
+    <span><%- gettext("STATUS") %></span>
+  </div>
+</div>
+
+<div class="form-group mentor-receipt-id">
+</div>
+
+<div class="form-group mentor-receipt-address">
+</div>
+
+<div class="form-group mentor-receipt-penal">
+</div>
+
+<div class="panel-heading border-light">
+  <ul class="panel-heading-tabs border-light">
+    <li class="panel-heading-tabs-echarli"><b><%- gettext(title_group_two) %></b></li>
+  </ul>
+</div>
+<h3 class="StepTitle"><%- gettext(subtitle_group_two) %></h3>
+
+<div class="form-group mentor-receipt-knowledge">
+</div>
+
+<div class="form-group mentor-receipt-diploma">
+</div>
+
+<div class="panel-heading border-light">
+  <ul class="panel-heading-tabs border-light">
+    <li class="panel-heading-tabs-echarli"><b><%- gettext(title_group_three) %></b></li>
+  </ul>
+</div>
+<h3 class="StepTitle"><%- gettext(subtitle_group_three) %></h3>
+
+<div class="form-group">
+  <div class="col-sm-6 mentor-phone-country">
+  </div>
+  <div class="col-sm-3 home" style="padding: 20px;">
+    <label>&nbsp;</label>
+    <!--<a class="btn btn-light-grey btn-block">
+      <i class="fa fa-comment-o fa-lg"></i>
+      <%- gettext("Verify by SMS") %>
+    </a>-->
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-6 mentor-phone">
+  </div>
+  <div class="col-sm-3 home" style="padding: 20px;">
+    <label>&nbsp;</label>
+    <!--<a class="btn btn-light-grey btn-block">
+      <i class="fa fa-phone fa-lg"></i>
+      <%- gettext("Verify by call") %>
+    </a>-->
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green back-step">
+    <i class="fa fa-arrow-circle-left"></i>
+    <%- gettext("Back") %>
+    </button>
+  </div>
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green next-step">
+    <%- gettext("Next") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>

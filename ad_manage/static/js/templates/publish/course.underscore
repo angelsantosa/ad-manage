@@ -1,0 +1,57 @@
+  <div class="row publish-container">
+  <div class="col-md-2 publish-sidebar">
+
+<ul>
+<% _.each(sections, function(section) { %>
+  <li><a href="#step-<%- section.step %>" class="<%- section.class %>" isdone="1" rel="<%- section.step %>"><%- gettext(section.title) %></a></li>
+  <% }); %>
+</ul>
+
+  </div>
+
+    <div class="col-md-10 publish-content">
+      <div class="panel panel-white">
+        <div class="panel-body">
+          <div role="form" class="smart-wizard form-horizontal" id="form">
+            <div id="wizard" class="swMain">
+                <!-- start: FORM WIZARD NAVIGATION PANEL -->              
+                <ul class="anchor hidden">
+                <% _.each(sections, function(section) { %>
+
+                  <li>
+                  <span class="stepDesc spepDescTop hidden-xs">
+                      <%- gettext(section.title) %>
+                    </span>
+                  <a href="#step-<%- section.step %>" class="<%- section.class %>" isdone="1" rel="<%- section.step %>">
+                      
+                      <div class="stepNumber">
+                        <%- section.step %>
+                      </div>
+                    </a>
+                    </li>
+                <% }); %>
+                </ul>
+                <!-- end: FORM WIZARD NAVIGATION PANEL -->
+
+              <div class="stepContainer view-profile-echarli">
+                  <% _.each(sections, function(section) { %>
+                      <!-- start: STEP <%- section.stepName %> -->
+                    <div id="step-<%- section.step %>" class="mentor-wizard-section-body">
+                    </div>
+                      <!-- end: STEP <%- section.stepName %> -->
+                    <% }); %>
+                    <p class="mentorSettingsFooter"><%- gettext(messagesData.bannerFooter) %></p>
+              </div>  
+                <!-- end: FORM WIZARD PANEL -->
+            </div>
+          </div> 
+            </div>
+          </div>
+        </div>
+     </div>
+     <div class="ui-loading-error is-hidden">
+        <i class="fa fa-exclamation-triangle message-error" aria-hidden=true></i>
+        <span class="copy">An error occurred. Please reload the page</span>
+    </div>
+    </div>
+<!-- end: MENTOR PROFILE PANEL -->

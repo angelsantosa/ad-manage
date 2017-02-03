@@ -1,0 +1,68 @@
+<% if(_.isEmpty(resultsJ)){ %>
+<div class="well well-sm">
+<h4>No hemos obtenido ningún resultado que se ajuste a tus criterios de búsqueda. Si los modificas, puede que tengas más suerte.</h4>
+<h5>Prueba con:</h5>
+<ul>
+	<li>Desactivar algunos filtros.</li>
+	<li>Amplía el área de búsqueda o el rango de precios.</li>
+	<li>Busca una ciudad, una dirección o un punto de referencia.</li>
+</ul>
+</div>
+<% } %>
+<% _.each(resultsJ, function(result){ %>
+	<% var user = _.findWhere(usersJ, {id: result.mentor}); %>
+
+	<div class="col-sm-6 col-md-6">
+	    <div class="box background-white">
+	        <div class="box-picture">
+	            <a href="#">
+	                <img src="http://i.imgur.com/ClOZNS5.png" alt="">
+	                <span></span>
+	            </a>
+	            <span class="flag">$ <%- result.price_program %></span>
+	        </div><!-- /.box-picture -->
+
+	          <div class="box-body">
+	              <div class="box-author">
+
+	                  <a href="#">
+	                      <img src="http://i.imgur.com/hWtgmN4.png" alt="">
+	                      <span></span>
+	                  </a>
+	              </div><!-- /.box-author -->
+	              <h2 class="box-title">
+	                  <div class="center">
+	                  <a href="#"><%- user.first_name %> <%- user.last_name %></a>
+	              </h2><!-- /.box-title -->
+
+	              <h2 class="box-title-plain">
+	                <div class="center">
+	                <a href="#"><%- result.course_name %></a>
+	          <small class="clearfix">Miguel Hidalgo, CDMX</small>
+	      </h2><!-- /.box-title-plain -->
+
+	      <div class="box-content">
+	          <div class="box-meta clearfix">
+	              <div class="rating pull-left">
+	                  <a href="#">
+	                      <i class="fa fa-star"></i>
+	                      <i class="fa fa-star"></i>
+	                      <i class="fa fa-star"></i>
+	                      <i class="fa fa-star"></i>
+	                      <i class="fa fa-star-half-empty"></i>
+	                  </a>
+	              </div><!-- /.rating -->
+
+	              <div class="favourite pull-right">
+	                  <a href="#"><i class="fa fa-heart fa-2x"></i></a>
+	              </div><!-- /.fovourite -->
+	                  </div>
+	              </div><!-- /.box-meta -->
+	          </div><!-- /.box-body -->
+	      </div><!-- /.box -->
+	  </div>
+
+	</div>
+	</div>
+
+<% }); %>

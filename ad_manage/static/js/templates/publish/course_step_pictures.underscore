@@ -1,0 +1,30 @@
+<div class="content-pcourse">
+  <span class="upload-resource-photo"></span>
+
+  <h4>Galeria</h4>
+  <div class="create-course-gallery">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="gallery-container">
+                <h1></h1>
+                <!-- GRID -->
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-bot">
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green back-step">
+    <i class="fa fa-arrow-circle-left"></i>
+    <%- gettext("Back") %>
+    </button>
+  </div>
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green next-step">
+    <%- gettext("Next") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>

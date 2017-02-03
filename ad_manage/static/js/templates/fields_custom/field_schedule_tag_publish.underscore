@@ -1,0 +1,6 @@
+<div class="publish-schedule">
+	<a class="course-schedule-tag-action">x</a>
+	<i class="fa fa-clock-o fa-2x"></i>
+	<h1><%- dayOfWeek %></h1>
+	<p><%- timeDisplay %></p>
+</div>

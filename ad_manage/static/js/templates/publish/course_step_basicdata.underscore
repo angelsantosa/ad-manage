@@ -1,0 +1,23 @@
+<div class="content-pcourse">
+                      
+<h2>Ayuda a tus aprendices a tomar tu curso y ganar mas dinero</h2>
+<h3>Datos basicos</h3>
+<p>Los aprendices pueden seleccionar cierto filtros sobre las caracteristicas de tu curso</p>
+
+
+<div class="course-type"></div>
+<div class="row apprentices-num"></div>
+<div class="publish-assistants-slider"></div>
+<div class="publish-assistants-schedule"></div>
+
+
+<div class="row bot-row">
+  <div class="col-md-3 col-md-offset-4">
+    <button class="btn btn-echarlie-green next-step e-next">
+    <%- gettext("Next") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>
+
+</div>

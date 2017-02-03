@@ -1,0 +1,56 @@
+<h4><%- title %></h4>
+
+<% if (title && titleVisible) { %>
+    <label class="u-field-custom-title">
+        <%- gettext("Duration of course") %>
+    </label>
+<% } %>
+<div class="row">
+    <div class="col-md-8">
+    <input type="text" id="daterange-publish-basic" />
+    </div>
+</div>
+<div class="row row-bot">
+    <div class="col-md-4">
+        <label class="u-field-custom-title">
+        <%- gettext("Schedules") %>
+    </label>
+    <span class="u-field-custom-value">
+        <select name="select" id="u-field-custom-select-<%- id %>" aria-describedby="u-field-custom-message-<%- id %>" class="form-control">
+            <% if (showBlankOption) { %>
+                <option value=""><%- blankOption %></option>
+            <% } %>
+            <% _.each(selectOptions, function(selectOption) { %>
+                <option value="<%- selectOption[0] %>"><%- selectOption[1] %></option>
+            <% }); %>
+        </select>
+    </span>
+
+        <div class="input-group clockpicker start">
+            <input type="text" class="form-control" value="" placeholder="<%- gettext('Time start') %>">
+            <span class="input-group-addon">
+                <span class="fa fa-clock-o fa-lg"></span>
+            </span>
+        </div>
+
+        <div class="input-group clockpicker end">
+            <input type="text" class="form-control" value="" placeholder="<%- gettext('Time end') %>">
+            <span class="input-group-addon">
+                <span class="fa fa-clock-o fa-lg"></span>
+            </span>
+        </div>
+<a class="btn btn-echarlie-green action"><%- gettext("Add") %></a>
+    </div>
+
+    <div class="col-md-8">
+    <h3><%- gettext("Schedules created") %></h3>
+    <div class="container-course-detail-calendar-schedule"></div>
+    </div>
+</div>
+
+
+
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+</span>

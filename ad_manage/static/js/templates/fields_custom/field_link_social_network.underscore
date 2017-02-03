@@ -1,0 +1,17 @@
+<span class="u-field-value align-middle">
+    <a id="u-field-link-<%- id %>" href="<%- linkHref %>" aria-describedby="u-field-message-help-<%- id %>">
+       <i class="<%- icon %>"></i>
+       <span class="sr"><%- screenReaderTitle %></span>
+    </a>
+</span>
+<span class="u-field-message align-middle" id="u-field-message-<%- id %>">
+    <span class="u-field-message-notification" aria-live="polite"></span>
+    <span class="u-field-message-help social-network-message-echarli" id="u-field-message-help-<%- id %>"><%- message %></span>
+</span>
+<span class="">
+	<i class="fa <%- linkIcon %> fa-2x social-network-echarli"></i>
+    <a id="u-field-link-<%- id %>" href="<%- linkHref %>" aria-describedby="u-field-message-help-<%- id %>" class="social-network-vincula-echarli">
+       <span class="sr"><%- screenReaderTitle %></span>
+       <span class="u-field-link-title-<%- id %>" aria-hidden="true"><%- linkTitle %></span>
+    </a>
+</span>

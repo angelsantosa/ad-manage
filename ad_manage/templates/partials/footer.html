@@ -1,0 +1,72 @@
+{% load i18n staticfiles %}
+{% block footer %}
+<footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4 col-sm-3">
+                  <ul>
+                  <li><a href="#"><img src="{% static 'img/echarli_footer_logo.png' %}" alt="image" class="img-responsive"></a></li>
+                  </ul>
+                  <a href="mailto:s" id="email_footer">info@echarli.com</a>
+              </div>
+              <div class="col-md-3 col-sm-3">
+                  <h3>Información Gral</h3>
+                  <ul>
+                      <li><a href="#">Acerca de Nosotros</a></li>
+                      <li><a href="#">Políticas de Privacidad</a></li>
+                      <li><a href="#">Terminos y condiciones</a></li>
+                       {% if user.is_authenticated %}
+                       {% if user.is_staff or perms.partner.dashboard_access %}
+                       <li><a href="/admin">ADMIN</a></li>
+                       <li><a href="{% url 'dashboard:index' %}">DASHBOARD</a></li>
+                       {% endif %}
+                       {% endif %}
+
+
+                  </ul>
+              </div>
+              <div class="col-md-3 col-sm-3">
+                  <h3>Descarga Nuestra App</h3>
+                      <ul>
+                      <li><a href="#"><img src="{% static 'img/appstore.png' %}" alt="image"></a></li>
+                      <li><a href="#"><img src="{% static 'img/play.png' %}" alt="image" class="img-responsive"></a></li>
+                      </ul>
+              </div>
+              <div class="col-md-2 col-sm-3">
+                  <h3></h3>
+                  <div class="styled-select">
+                      <select class="form-control" name="lang" id="lang">
+                          <option value="English" selected>English</option>
+                          <option value="French">French</option>
+                          <option value="Spanish">Spanish</option>
+                          <option value="Russian">Russian</option>
+                      </select>
+                  </div>
+                  <div class="styled-select">
+                      <select class="form-control" name="currency" id="currency">
+                          <option value="USD" selected>USD</option>
+                          <option value="EUR">EUR</option>
+                          <option value="GBP">GBP</option>
+                          <option value="RUB">RUB</option>
+                      </select>
+                  </div>
+              </div>
+          </div><!-- End row -->
+          <div class="row">
+              <div class="col-md-12">
+                  <div id="social_footer">
+                      <h3>Siguenos en nuestras Redes Sociales</h3>
+                      <ul>
+                          <li><a href="#"><i class="icon-facebook"></i></a></li>
+                          <li><a href="#"><i class="icon-twitter"></i></a></li>
+                          <li><a href="#"><i class="icon-google"></i></a></li>
+                          <li><a href="#"><i class="icon-instagram"></i></a></li>
+                          <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                      </ul>
+                      <p>© eCharli 2016</p>
+                  </div>
+              </div>
+          </div><!-- End row -->
+      </div><!-- End container -->
+  </footer><!-- End footer -->
+{% endblock footer %}

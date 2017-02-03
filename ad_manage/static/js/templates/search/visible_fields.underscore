@@ -1,0 +1,13 @@
+<span class="search-input-big">
+</span>
+<div class="row row-search search-field-course-name"></div>
+
+<div class="row row-search search-field-location-address"></div>
+
+<div class="row row-search search-field-date"></div>
+
+<div class="row row-search search-field-categories"></div>
+
+<div class="row row-search search-field-course-type"></div>
+
+<div class="row row-search search-field-price-range"></div>

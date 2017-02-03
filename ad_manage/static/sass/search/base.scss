@@ -1,0 +1,222 @@
+.filter-panel{
+
+	position: fixed;
+	top: 76px;
+	left: 0;
+	bottom: 0;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+.map-panel{
+		position: fixed;
+    right: 0;
+    left: auto;
+    display: block;
+    bottom: 0;
+    top: 76px;
+    padding: 0;
+}
+
+.row-search{
+	border-bottom: 1px solid $nav-tabs-border-color;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.main-search{
+    h2{
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    input{
+        padding: 15px;
+        width: 100%;
+        border-color: $nav-tabs-border-color;
+    }
+}
+.main-searchbar{
+    input{
+        padding: 20px;
+        border-color: $nav-tabs-border-color;
+    }
+    button{
+        padding:10.5px;
+    }
+}
+
+#map-search{
+	width:100%;
+	height:1100px;
+}
+.cat-tabs{
+        .nav-tabs {
+          background-color: $white;
+          > li {
+            // Actual tabs (as links)
+            > a {
+                i{
+                    color: $egreen;
+                    padding-bottom: 5px;
+                }
+                border-right: 1px solid $nav-tabs-border-color;
+                font-weight: 500;
+                margin-right: 0;
+                padding: 5px 5px;
+                text-transform: uppercase;
+            }
+
+
+            // Active state, and its :hover to override normal :hover
+            &.active > a {
+              &,
+              &:hover,
+              &:focus {
+                background-color: $egreen;
+                border-bottom-color: solid;
+                color: #8E9AA2;
+                i{
+                    color: $white;
+                }
+              }
+            }
+          }
+          // pulling this in mainly for less shorthand
+
+        }
+}
+
+.result-card{
+
+	.header-result{
+	width: 100%;
+    height: 230px;
+    background-size: cover;
+    padding-top: 30px;
+	    h3{
+	    background-color: $egreen;
+	    width: 100%;
+	    height: 50px;
+	    padding-top: 10px;
+	    color: $white;
+	    text-transform: capitalize;
+	    text-shadow: 2px 2px $grey;
+	    }
+
+	}
+.favs{
+    > a{
+        color: $red;
+    }
+    > a:hover{
+        color: $darkRed;
+    }
+.rating{
+    vertical-align: unset;
+}
+
+}
+
+}
+.cat-guitar{
+	background-image: url('http://i.imgur.com/dH1A6a2.jpg');
+}
+.cat-sax{
+	background-image: url('http://i.imgur.com/1eoB2MY.jpg');
+}
+.cat-violin{
+	background-image: url('http://i.imgur.com/EI1lhbM.png');
+}
+
+
+
+label {
+    padding:0.4em 2em 0.4em 0;
+}
+.toggle-btn-grp {
+    margin:3px 0;
+}
+.toggle-btn {
+    text-align:center;
+    margin:5px 2px;
+    padding:0.4em 3em;
+    background-color:$white;
+    border-radius:10px;
+    display:inline-block;
+    border:solid 1px $grey;
+    cursor:pointer;
+    color: $grey;
+}
+
+.toggle-btn-grp.joint-toggle .toggle-btn {
+    margin:5px 0;
+    padding:0.4em 2em;
+    border-radius:0;
+}
+
+.toggle-btn:hover {
+    border:solid 1px $eblue !important;
+    /*background:$eblue;*/
+}
+
+
+.toggle-btn.success {
+    background:$egreen;
+    color: $white;
+    i{
+    	color: $white;
+    }
+}
+
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+#steps-fivepercent-slider .ui-slider-tip {
+    visibility: visible;
+    opacity: 1;
+    top: -30px;
+}
+.slider-prize-range-search{
+
+    .ui-widget-header {
+        background-color: $egreen;
+    }
+    .ui-slider-pips [class*=ui-slider-pip-selected] {
+    color: $egreen;
+    }
+
+
+    .ui-slider-pips .ui-slider-pip-selected-2 {
+        color: $egreen;
+    }
+    .ui-slider-pips [class*=ui-slider-pip-selected] {
+        font-weight: bold;
+        color: $orange;
+    }
+    .ui-slider-pips .ui-slider-pip-initial-2 {
+        color: $eblue;
+    }
+    .ui-slider-pips [class*=ui-slider-pip-initial] {
+        font-weight: bold;
+        color: $elgreen;
+    }
+
+}

@@ -1,0 +1,51 @@
+{% extends "layout_backbone.html" %}
+{% load i18n staticfiles jsonify %}
+
+{% block styles %}
+    {{ block.super }}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inside/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/footer.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/navbar_second.css' %}" />
+{% endblock %}
+
+{% comment %}
+        añadirf plauin functions al init de requiere confi TODO
+
+        <script src="{% static 'js/home/plain_functions.js' %}"></script>
+{% endcomment %}
+
+{% block title %}
+    {{ page_title }} | {% trans 'Search' %} | {{ block.super }}
+{% endblock %}
+
+{% block second_navbar %}
+  {% include "ad_manage/partials/navbar_second.html" %}
+{% endblock %}
+
+{% block content_wrapper %}
+
+	<div class="container-fluid main-search"></div>
+
+{% endblock %}
+
+{% block backbone_views %}
+
+{% comment %}
+<script type="text/javascript">
+require(['search/views/search_factory'], function (SearchFactory) {
+    var fieldsData = {{fields|jsonify}} ;
+    SearchFactory(fieldsData);
+});
+</script>
+{% endcomment %}
+  <script type="text/javascript">
+require(['search/views/search_factory'], function (SearchFactory) {
+    var fieldsData = {"price_currency": {"options": [["usd", "USD"], ["mxn", "MXN"]]}, "course_language": {"options": [["en", "English"], ["es", "Spanish"], ["de", "German"]]}, "location_type": {"options": [[0, "Public Place"], [2, "House"], [1, "Office"], [3, "Coffee"]]}, "course_type": {"options": [[0, "Individual Face"], [1, "Collective Face"], [2, "Via Remote"], [3, "Online Video"]]}, "location_mode": {"options": [[0, "Provided by the apprentice"], [1, "Provided by the mentor"]]}, "payment_type": {"options": [[0, "Payment session"], [1, "Payment program"], [2, "Free"]]}, "course_level": {"options": [[1, "Novice"], [3, "Begginer"], [6, "Intermediate"], [10, "Advanced"], [12, "Expert"]]}, "discount_type": {"options": [[0, "Special offers"], [1, "Direct discount"], [2, "Discount for buying in bulk"], [3, "None"]]}, "categories": {"options": [["Photograph", 2, "fa-photo", [[11, "Street"], [10, "Shadows"], [9, "Digital"], [8, "Black and White"], [7, "Panoramic"]]], ["Music", 1, "fa-music", [[23, "Piano"], [6, "Voice"], [5, "Guitar"], [4, "Drums"], [3, "Clarinet"], [2, "Acordion"], [1, "Violin"]]], ["Science", 4, "fa-bell", [[19, "Sea Science"], [18, "Mathematics"], [17, "Chemistry"], [16, "Biology"], [15, "Physics"]]], ["Kitchen", 3, "fa-beer", [[14, "Wine and Cheese"], [13, "Mexican"], [12, "French Flavors"]]], ["Deportes", 6, "fa-group", [[20, "Futbol"]]], ["Art", 7, "fa-film", [[22, "Plastic"], [21, "Painting"]]]]}, "days_of_week": {"options": [[0, "Monday"], [1, "Tuesday"], [2, "Wednesday"], [3, "Thursday"], [4, "Friday"], [5, "Saturday"], [6, "Sunday"]]}} ;
+    SearchFactory(fieldsData);
+});
+</script>
+{% endblock %}
+
+{% block footer_lay %}{% endblock footer_lay %}

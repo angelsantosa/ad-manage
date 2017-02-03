@@ -1,0 +1,13 @@
+<label class="u-field-custom-title" for="u-field-link-<%- id %>">
+    <%- title %>
+</label>
+<span class="">
+    <a id="u-field-link-<%- id %>" href="<%- linkHref %>" aria-describedby="u-field-message-help-<%- id %>">
+       <span class="sr"><%- screenReaderTitle %></span>
+       <span class="u-field-link-title-<%- id %>" aria-hidden="true"><%- linkTitle %></span>
+    </a>
+</span><br>
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"><%- message %></span>
+</span>

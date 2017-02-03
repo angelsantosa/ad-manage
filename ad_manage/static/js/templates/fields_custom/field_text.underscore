@@ -1,0 +1,13 @@
+<label class="u-field-custom-title" for="u-field-custom-input-<%- id %>">
+    <%- gettext(title) %>
+</label>
+<span class="input-icon input-icon-right u-field-custom-value">
+    <input id="u-field-custom-input-<%- id %>" aria-describedby="u-field-custom-message-help-<%- id %>" type="text" class="form-control" name="input" value="<%- value %>">
+    <% if (iconClass) { %>
+        <i class="<%- iconClass %>"></i>
+    <% } %>
+</span>
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+</span>

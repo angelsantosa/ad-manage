@@ -1,0 +1,57 @@
+<div class="content-pcourse">
+
+<h2>Ayuda a tus aprendices a tomar tu curso y ganar mas dinero</h2>
+
+<h3>Ubicacion</h3>
+
+<span class="container-views-location-mode"></span>
+
+<div class="row location-options-mentor">
+<span class="container-views-location-type"></span>
+</div>
+
+<div class="row row-bot location-options-mentor">
+<div class="col-md-4">
+<button class="btn btn-echarlie-green">
+   Ingresa ubicacion
+  </button>
+</div>
+</div>
+
+<div class="row location-options-mentor">
+<span class="container-views-location-country"></span>
+</div>
+
+<div class="row location-options-mentor">
+<span class="container-views-location-first"></span>
+</div>
+
+<div class="row location-options-mentor">
+<span class="container-views-location-second"></span>
+</div>
+
+<div class="row location-options-mentor">
+<span class="container-views-location-third"></span>
+</div>
+
+<div class="row location-options-mentor">
+<span class="container-views-location-fourth"></span>
+</div>
+
+<div class="publish-map location-options-mentor"></div>
+
+</div>
+<div class="row row-bot">
+<div class="col-md-3 col-sm-offset-2">
+<button class="btn btn-echarlie-green back-step">
+<i class="fa fa-arrow-circle-left"></i>
+<%- gettext("Back") %>
+</button>
+</div>
+<div class="col-md-3 col-sm-offset-2">
+<button class="btn btn-echarlie-green next-step">
+<%- gettext("Next") %>
+<i class="fa fa-arrow-circle-right"></i>
+</button>
+</div>
+</div>

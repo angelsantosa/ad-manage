@@ -1,0 +1,22 @@
+<li class="col-md-3 col-sm-6 col-xs-12">
+    <div class="portfolio-item">
+        <% if (titleVisible) { %>
+            <span class=""><%- title %></span>
+        <% } %>
+        <a class="" href="<%- resourceUrl %>"></a>
+        <% if (toolbarVisible) { %>
+            <div class="chkbox"></div>
+            <div class="tools tools-bottom">
+                <a href="#">
+                    <i class="fa fa-link"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</li>

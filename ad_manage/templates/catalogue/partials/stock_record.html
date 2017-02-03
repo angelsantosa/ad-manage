@@ -1,0 +1,72 @@
+{% load currency_filters %}
+{% load i18n %}
+{% load purchase_info_tags %}
+
+{% purchase_info_for_product request product as session %}
+
+{% comment %}
+<p class="{{ session.availability.code }} availability">
+    <i class="icon-{% if session.availability.is_available_to_buy %}ok{% else %}remove{% endif %}"></i>
+    {% if verbose %}
+        {{ session.availability.message }}
+    {% else %}
+        {{ session.availability.short_message }}
+    {% endif %}
+</p>
+{% endcomment %}
+
+{% if session.price.exists %}
+    {% if session.price.excl_tax == 0 %}
+        <h3 class="inner">{% trans "Free" %}</h3>
+    {% elif session.price.is_tax_known %}
+        <h3 class="inner">{{ session.price.incl_tax|currency:session.price.currency }}</h3>
+    {% else %}
+        <h3 class="inner">{{ session.price.excl_tax|currency:session.price.currency }}</h3>
+    {% endif %}
+{% else %}
+    <h3 class="inner">&nbsp;</h3>
+{% endif %}
+<table class="table table_summary">
+<tbody>
+<tr>
+  <td>
+    Precio
+  </td>
+  <td class="text-right">
+    $ 0.00
+  </td>
+</tr>
+<tr>
+  <td>
+    Descuento
+  </td>
+  <td class="text-right">
+    30%
+  </td>
+</tr>
+<tr>
+  <td>
+    Cantidad
+  </td>
+  <td class="text-right">
+    $0.00
+  </td>
+</tr>
+<tr class="total">
+  <td>
+    Total
+  </td>
+  {% if session.price.exists %}
+      {% if session.price.excl_tax == 0 %}
+          <td class="text-right">{% trans "Free" %}</td>
+      {% elif session.price.is_tax_known %}
+          <td class="text-right">{{ session.price.incl_tax|currency:session.price.currency }}</td>
+      {% else %}
+          <td class="text-right">{{ session.price.excl_tax|currency:session.price.currency }}</td>
+      {% endif %}
+  {% else %}
+      <td class="text-right">&nbsp;</td>
+  {% endif %}
+</tr>
+</tbody>
+</table>

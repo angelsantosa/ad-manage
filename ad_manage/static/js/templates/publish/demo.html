@@ -1,0 +1,65 @@
+<%inherit file="../main.html" />
+<%namespace name='static' file='../static_content.html'/>
+<%namespace file='../main.html' import="login_query"/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from django.utils import html
+from django_countries import countries
+from django.utils.translation import ugettext as _
+from microsite_configuration import microsite
+from student.models import UserProfile
+from datetime import date
+import third_party_auth
+from third_party_auth import pipeline, provider
+import calendar
+%>
+
+<%block name="pagetitle">${_("Welcome to {platform_name}").format(platform_name=platform_name)}</%block>
+
+<%block name="bodyclass">view-register</%block>
+
+<section class="introduction">
+  <header>
+    <h1 class="title">
+      <span class="title-super">${_("Hello World!")}</span>
+      <span class="title-sub">${_("it works great!, you are in {platform_name}").format(platform_name=platform_name)}</span>
+    </h1>
+  </header>
+  
+  
+
+
+  <div class="modal fade modal-overflow in" id="panel-config" tabindex="-1" role="dialog" aria-hidden="true" style="">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						×
+					</button>
+					<h4 class="modal-title">Panel Configuration</h4>
+				</div>
+				<div class="modal-body">
+					Here will be a configuration form
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						Close
+					</button>
+					<button type="button" class="btn btn-primary">
+						Save changes
+					</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<a class="panel-config" href="#panel-config" data-toggle="modal">
+		<i class="fa fa-wrench"></i> <span>Configurations</span>
+	</a>
+
+  <br><br><br><br><br>
+</section>
+

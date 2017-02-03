@@ -1,0 +1,51 @@
+<div class="content-pcourse">
+
+<h2>Ayuda a tus aprendices a tomar tu curso y ganar mas dinero</h2>
+<h3>Opciones de pago</h3>
+<p>Establece una tarifa por tu curso, puedes establecer un precio en el que tengas en cuenta el curso, materiales, nicel de dificultad</p>
+
+<div class="container-views-paymentoptions"></div>
+<div class="row price-publish"></div>
+<div class="container-views-paymentoptions-discount"></div>
+<div class="summary-all">
+
+<div class="row">
+
+<div class="col-md-offset-3 col-md-4">
+  <h1><%- gettext("TOTAL") %></h1>
+</div>
+<div class="col-md-5">
+</div>
+
+<div class="row">
+
+<div class="col-md-offset-3 col-md-4">
+  <h2><%- gettext("Price per session") %></h2>
+  <h2><%- gettext("Price per program") %></h2>
+  <h2><%- gettext("Summary") %></h2>
+</div>
+<div class="col-md-offset-1 col-md-3">
+  <h1><%- gettext("$ 420") %></h1>
+  <h1><%- gettext("$ 666") %></h1>
+  <h1><%- gettext("$ 1337") %></h1>
+</div>
+<div class="col-md-1">
+</div>
+</div>
+</div>
+
+<div class="row row-bot">
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green back-step">
+    <i class="fa fa-arrow-circle-left"></i>
+    <%- gettext("Back") %>
+    </button>
+  </div>
+  <div class="col-md-3 col-sm-offset-2">
+    <button class="btn btn-echarlie-green next-step">
+    <%- gettext("Next") %>
+    <i class="fa fa-arrow-circle-right"></i>
+    </button>
+  </div>
+</div>
+</div>

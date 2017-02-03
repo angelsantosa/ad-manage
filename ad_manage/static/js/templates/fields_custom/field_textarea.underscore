@@ -1,0 +1,24 @@
+<label class="u-field-custom-title" for="u-field-textarea-<%- id %>">
+</label>
+<span class="u-field-custom-value">
+    <% if (mode === 'edit') { %>
+            <textarea class="form-control" id="u-field-textarea-<%- id %>" rows="4"
+            <% if (message) { %>
+                aria-describedby="u-field-message-help-<%- id %>"
+            <% } %>
+            ><%- value %></textarea>
+        <% } else if (editable === 'never') { %>
+            ><p class="sr"><%- screenReaderTitle %></p><span class="u-field-custom-value-readonly" aria-hidden="false"
+            <% if (message) { %>
+                aria-describedby="u-field-message-help-<%- id %>"
+            <% } %>
+            ><%- value %></span>
+        <% } else { %>
+            ><a href="#"><p class="sr"><%- screenReaderTitle %></p><span class="u-field-custom-value-readonly" aria-hidden="false" aria-describedby="u-field-placeholder-value-<%- id %>"><%- value %></span><span class="sr"><%- gettext('Click to edit') %></span></a>
+            <span class="sr" id="u-field-placeholder-value-<%- id %>"><%- placeholderValue %></span>
+        <% } %>
+</span>
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+</span>

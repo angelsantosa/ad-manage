@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% load i18n staticfiles %}
+
+{% block title %}
+    {% trans 'Register' %} | {{ block.super }}
+{% endblock %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "css/users/usersforms.css" %}" />
+{% endblock styles %}
+
+{% block header_complete %}{% endblock header_complete %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block headertext %}{% endblock %}
+
+{% block content_wrapper %}
+
+<section id="hero" class="login">
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+<div id="login">
+<div class="text-center"><a href="{{ homepage_url }}"><img src="{% static "img/logo_sticky.png" %}" alt="Image" data-retina="true" ></a></div>
+  <hr>
+  <div class="socialshit" style="display: none;">
+    <div class="form-group">
+			<a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary bg-indigo-800 btn-block"><b><i class="icon-facebook position-left"></i></b>{% trans "Sign up with Facebook" %}</a>
+			</div>
+		    <div class="form-group">
+			<a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-default border-slate text-slate-800 btn-flat btn-block"><b><img src="{% static "img/gg.png" %}"><i class="position-left"></i></b> {% trans "Sign up with Google" %}</a>
+			</div>
+      <div class="form-group">
+			<a href="{% url 'social:begin' 'linkedin' %}" class="btn btn-blue bg-blue-700 btn-block"><b><i class="icon-linkedin position-left"></i></b>{% trans "Sign up with Linkedin" %}</a>
+			</div>
+		    <div class="form-group">
+			<a href="{% url 'social:begin' 'twitter' %}" class="btn btn-info bg-blue-300 btn-block"><b><i class="icon-twitter position-left"></i></b>{% trans "Sign up with Twitter" %}</a>
+			</div>
+  </div> <!-- end row -->
+  <div class="leform" style="display: none;">
+    <form id="register_form" action="." method="post" class="form-stacked">
+      {% csrf_token %}
+      {% include "partials/form_fields.html"  %}
+      <label>Si me registro acepto los <a href="#">terminos y condiciones.</a></label>
+
+      <button name="registration_submit" type="submit" value="Register" class="btn_full" data-loading-text="{%trans 'Registering...' %}">{% trans 'Register' %}</button>
+      {% if cancel_url %}
+          {% trans "or" %} <a href="{{ cancel_url }}">{% trans "cancel" %}</a>.
+        {% endif %}
+
+
+    </form>
+  </div>
+  <div class="login-or"><hr class="hr-or"><span class="span-or"></span></div>
+
+  <div class="text-center"><h5><a class="mvp" href="#"><i class="icon-git-branch"></i>{% trans "Sign up using your email address" %}</h5></a>
+  </div>
+
+<div class="login-or"><hr class="hr-or"><span class="span-or"></span></div>
+  <div class="form-group login-options">
+  <div class="row">
+  <div class="col-sm-8 text-left">
+    <a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a>
+  </div>
+
+  <div class="col-sm-4 text-right">
+  <a href="{% url 'customer:login' %}">{% trans "Log in" %}</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+{% endblock content_wrapper %}
+
+{% block footer_lay %}{% endblock footer_lay %}
+
+{% block onbodyload %}
+    {{ block.super }}
+var with_ = "{% trans "Sign up using your email address" %}";
+var without_ = "{% trans "Sign up using your social network" %}";
+if($(".alert-danger").length){
+  $(".leform").show(100);
+  $(".socialshit").hide();
+  $(".mvp").text(without_);
+}else{
+  $(".socialshit").show(800);
+  $(".leform").hide();
+  $(".mvp").text(with_);
+}
+    $(".mvp").click(function(){
+        $(".leform").toggle(500);
+        $(".socialshit").toggle(500);
+
+        $(this).text(function(i, text){
+          return text === with_ ? without_ : with_;
+      });
+    });
+{% endblock %}

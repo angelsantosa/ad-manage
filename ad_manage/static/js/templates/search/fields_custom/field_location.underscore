@@ -1,0 +1,15 @@
+<div class="col-md-2">
+  <h2 class="u-field-custom-title" for="u-field-custom-input-<%- id %>"><%- title %></h2>
+</div>
+<div class="col-md-10">
+  <span class="input-icon input-icon-right u-field-custom-value">
+      <input id="u-field-custom-input-gmaps" type="text"/>
+      <% if (iconClass) { %>
+          <i class="<%- iconClass %>"></i>
+      <% } %>
+  </span>
+  <span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+      <span class="u-field-custom-message-notification" aria-live="polite"></span>
+      <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+  </span>
+</div>

@@ -1,0 +1,81 @@
+{% load staticfiles i18n %}
+<!doctype html>
+{% block html_tag %}
+<html {% block angular-tag %}{% endblock angular-tag %}>
+{% endblock html_tag %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% if display_version %}[{% trans "Build" %} {{ version }}] {% endif %}{% block title %}{{ shop_name }} - {{ shop_tagline }}{% endblock %}</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="created" content="{% now "jS M Y h:i" %}" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}" />
+        <meta name="robots" content="NOARCHIVE,NOCACHE" />
+        <!-- To load translations -->
+        {% block favicon %}
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+        <link rel="apple-touch-icon" type="image/x-icon" href="{% static "img/apple-touch-icon-57x57-precomposed.png" %}">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static "img/apple-touch-icon-72x72-precomposed.png" %}">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static "img/apple-touch-icon-114x114-precomposed.png" %}">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static "img/apple-touch-icon-144x144-precomposed.png" %}">
+        {% endblock %}
+
+        {% block styles %}{% endblock %}
+
+        {% block extrastyles %}{% endblock %}
+
+        {% block extrahead %}{% endblock %}
+
+        {% block tracking %}
+            {# Default to using Google analytics #}
+            {% include "partials/google_analytics.html" %}
+        {% endblock %}
+
+        {% block requirejs %}
+          {% if backbone %}
+          <script src="{% static 'js/core/require/require.js' %}"></script>
+          <script src="{% static 'js/require-config.js' %}"></script>
+          {% endif %}
+        {% endblock %}
+    </head>
+    <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
+      {# Main content goes in this 'layout' block #}
+      {% block layout %}{% endblock %}
+      {# Scripts loaded from a CDN. #}
+
+      {% if backbone %}
+
+      {% block backbone_views %}{% endblock %}
+
+      {% else %}
+
+      {% block cdn_scripts %}
+          <!-- Translations -->
+          <script type="text/javascript" src="url django.views.i18n.javascript_catalog"></script>
+          <!-- jQuery -->
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery-1.9.1.min.js" %}"><\/script>')</script>
+      {% endblock %}
+
+      {# Local scripts #}
+      {% block scripts %}
+      {% endblock %}
+
+      {# Additional JS scripts #}
+      {% block extrascripts %}{% endblock %}
+
+      {# Block for body onload functions #}
+      <script type="text/javascript">
+          $(function() {
+              {% block onbodyload %}{% endblock %}
+          });
+      </script>
+
+      {# Page meta-data - this is populated by the 'metadata' template context processor #}
+
+      {% endif %}
+
+    </body>
+</html>

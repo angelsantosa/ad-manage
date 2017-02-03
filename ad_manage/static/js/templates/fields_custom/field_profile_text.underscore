@@ -1,0 +1,24 @@
+<% // Solo se presenta el titulo en los modos: always, toggle %>
+<% if (editable !== 'never') { %>
+    <% if (title && titleVisible) { %>
+        <label class="u-field-custom-title" for="u-field-custom-input-<%- id %>">
+            <%- title %>
+        </label>
+    <% } else { %>
+        <label class="sr" for="u-field-custom-input-<%- id %>">
+            <%- screenReaderTitle %>
+        </label>
+    <% } %>
+<% } %>
+<span class="u-field-custom-value">
+    <% if (editable === 'never') { %>
+        <span class="sr"><%- screenReaderTitle %> &nbsp;</span>
+        <span class="u-field-custom-value-readonly"></span>
+    <% } else { %>
+        <input id="u-field-custom-input-<%- id %>" aria-describedby="u-field-custom-message-help-<%- id %>" type="text" name="input" value="<%- value %>">
+    <% } %>
+</span>
+<span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+    <span class="u-field-custom-message-notification" aria-live="polite"></span>
+    <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+</span>

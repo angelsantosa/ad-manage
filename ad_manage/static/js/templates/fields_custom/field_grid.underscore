@@ -1,0 +1,24 @@
+<li class="col-md-3 col-sm-6 col-xs-12 mix category_1 gallery-img" data-cat="1" style="display: inline-block;">
+    <div class="portfolio-item">
+        <a class="thumb-info" href="<%- imageUrl %>" data-lightbox="gallery" data-title="<% if (titleVisible) { %><%- title %><% } %>">
+            <img src="<%- imageUrl %>" class="img-responsive" alt="">
+            <% if (titleVisible) { %>
+                <span class="thumb-info-title"> <%- title %> </span>
+            <% } %>
+        </a>
+        <% if (toolbarVisible) { %>
+            <div class="chkbox"></div>
+            <div class="tools tools-bottom">
+                <a href="#">
+                    <i class="fa fa-link"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</li>

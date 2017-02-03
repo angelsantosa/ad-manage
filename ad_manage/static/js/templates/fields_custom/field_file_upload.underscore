@@ -1,0 +1,76 @@
+<div class="document-wrapper">
+    <div class="document-title col-sm-4">
+        <p class="subsection-title"><%- title %></p>
+        <p class="subsection-subtitle"><%- subtitle %></p>
+    </div>
+
+    <div class="u-field-upload-button-wrapper document-fields field field-file col-sm-3">
+        <div class="fileupload fileupload-new home" style="float:right;">
+            <a class="u-field-upload-button btn btn-file go-button">
+                <i class="fa <%= uploadButtonIcon %> upload-button-icon" aria-hidden="true"></i>
+                <span class="fileupload-new upload-button-title" aria-live="polite"><%= uploadButtonTitle %></span>
+                <input id="document-file-upload-<%- id %>" class="upload-button-input"
+                       name="<%- id %>" type="file"
+                    <% if (extensions) { %>
+                      accept="<%- extensions %>"
+                    <% } %>
+                />
+            </a>
+            <span class="tip tip-stacked"><%- inputTip %></span>
+            <span class="fileupload-preview"></span>
+        </div>
+    </div>
+
+    <% if (showStatus == "true") { %>
+    <div class="col-sm-3">
+        <a href="#file-status-<%- id %>" data-toggle="modal">
+        <i class="fa <%- iconDocumentStatus %> fa-2x"></i>
+        <%- documentStatus %>
+        </a>
+    </div>
+    <% } %>
+
+    <a class="u-field-remove-button btn btn-file" type="button">
+        <span class="remove-button-icon" aria-hidden="true"><i class="fa <%= removeButtonIcon %>"></i></span>
+        <span class="remove-button-title" aria-live="polite"><%= removeButtonTitle %></span>
+        <span class="sr"><%= screenReaderTitle %></span>
+    </a>
+
+    <% if (isShowingPlaceholder === false) { %>
+    <div class="col-sm-3">
+        <a class="mentor-download-receipt-document" href="<%- documentUrl %>" target="_blank">
+            <i class="fa fa-download fa-2x"></i>
+        </a>
+    </div>
+    <% } %>
+
+</div>
+
+<!-- File Missing Modal -->
+
+<div class="modal fade" id="file-status-<%- id %>" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div id="file-missing-echarli-logo" class="col-xs-6 border-right border-dark">
+            <img src="/static/images/echarli-theme/echarli_logo_verde.png" height="60"></img>
+          </div>
+          <div id="file-missing-info" class="col-xs-6">
+            <h3>
+              <i class="fa <%- iconDocumentStatus %> fa-2x pull-left"></i><%- documentStatus %>
+            </h3><br><br>
+            <p>
+              <%= helpMessageDocumentStatus %>
+            </p><br>
+            <p>
+              <a type="button" class="btn-echarlie-green btn-file-missing" data-dismiss="modal">OK</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- File Missing Modal -->

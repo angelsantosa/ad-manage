@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-7 filter-panel">
+	    <div class="panel panel-white">
+		    <div class="panel-body">
+
+		    <div class="search-fields"></div>
+
+		    <div id="collapseOne" class="panel-collapse collapse search-fields-h"></div>
+
+        <div class="collapse-button padding-15">
+            <button class="btn btn-green-echarli accordion-toggle more-filters" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <i class="icon-arrow"></i> <%- gettext("More Filters") %>
+            </button>
+          <span class="total-courses pull-right">
+              
+                        </span>
+          </div>
+
+
+
+		    <div class="search-results"></div>
+
+			</div>
+		</div>
+	</div>
+    <div class="col-md-5 hidden-sm map-panel">
+	    <div id="map-search" class="search-results-map"></div>
+    </div>
+</div>
+<div class="cardsToRender"></div>

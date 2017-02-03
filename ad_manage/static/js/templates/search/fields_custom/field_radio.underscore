@@ -1,0 +1,17 @@
+<div class="col-md-2"><h2><%- title %></h2></div>
+<div class="col-md-10">
+  <div class="toggle-btn-grp joint-toggle text-center">
+      <% _.each(radioOptions, function(radioOption) { %>
+            <label class="toggle-btn text-center <%- classOptions[radioOption[0]] %>">
+              <input type="radio" name="u-field-custom-radio-<%- id %>" value="<%- radioOption[0] %>"/>
+              <%- radioOption[1] %><br/>
+              <i class="fa <%- iconOptions[radioOption[0]] %> fa-3x"></i>
+            </label>
+      <% }); %>
+  </div>
+
+  <span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+      <span class="u-field-custom-message-notification" aria-live="polite"></span>
+      <span class="u-field-custom-message-help" id="u-field-custom-help-message-<%- id %>"><%- message %></span>
+  </span>
+</div>

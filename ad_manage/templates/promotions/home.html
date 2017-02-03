@@ -1,0 +1,631 @@
+{% extends "layout.html" %}
+{% load i18n staticfiles %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home/base.css' %}" />
+{% endblock %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script src="{% static 'js/home/plain_functions.js' %}"></script>
+{% endblock %}
+
+{% block header_complete %}
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+              {% include "partials/brand.html" %}
+
+              {% block navigation %}
+                  {% include "partials/nav_primary.html" %}
+                  {% block mini_basket %}{# include "partials/mini_basket.html" #}{% endblock %}
+              {% endblock %}
+
+
+            </div>
+        </div><!-- container -->
+    </header><!-- End Header -->
+
+{% endblock header_complete %}
+
+{% block content_wrapper %}
+<section id="hero">
+ 	<div class="intro_title">
+    	<h3 class="animated fadeInDown">Texto de Introducción Numero 1</h3>
+        <p class="animated fadeInDown">Texto de Introducción Numero 2</p>
+       <a href="#" class="animated fadeInUp button_intro">Botón Función</a>
+	</div>
+
+    	 <div id="search_bar_container">
+                	<div class="container">
+                            <div class="search_bar">
+
+                              <div class="container">
+                             <div class="col-md-3">
+                                <div class="form-group">
+                                    <div class="row">
+                                    <input type="text" class="form-control" id="" name="firstname" placeholder="Quiero aprender sobre">
+                                    </div>
+                                    </div>
+                            </div>
+                                  <div class="col-md-3 hidden-xs">
+                                	<div class="form-group">
+                                        <div class="row">
+                                        <input type="text" class="form-control" id="Curso" name="firstname" placeholder="Donde">
+                                    </div>
+                                </div>
+                                      </div>
+                                <div class="col-md-3 hidden-xs">
+                                	<div class="form-group">
+                                        <div class="row">
+                                        <input class="date-pick form-control" data-date-format="M d, D" type="text">
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="nav-submit-button">
+                                <input type="submit" title="Cerca" class="nav-submit-input" value="Search">
+                            </div>
+                                  </div>
+                                </div>
+                        </div><!-- End search bar-->
+                </div><!-- /search_bar-->
+</section><!-- End hero -->
+
+
+   <section class="margin_60 echarli_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 main_title">
+                    <h2>Aprende Cualquier Cosa</h2>
+                    <h3>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 wow zoomIn" data-wow-delay="0.2s">
+                    <div class="feature_home">
+                        <i class="icon-laptop"></i>
+                        <h3><span>+120</span> Diferentes Cursos</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow zoomIn" data-wow-delay="0.4s">
+                    <div class="feature_home">
+                        <i class="icon_set_1_icon-30"></i>
+                        <h3><span>+1000</span> Alumnos</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="feature_home">
+                        <i class="icon_set_1_icon-57"></i>
+                        <h3>Soporte <span> 24H</span></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main_title">
+                <h2>168 000 <spa>Usuarios</spa></h2>
+                <h4>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</h4>
+            </div>
+            <div class="col-md-12 main_title">
+            <div class="col-md-12 wow zoomIn" data-wow-delay="0.2s">
+                <div class="general_icons">
+                <ul>
+                    <li><img src="{% static 'img/avatar1.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar2.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar3.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar4.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar5.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar6.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar7.jpg' %}" alt="Image" class="img-circle"></li>
+                    <li><img src="{% static 'img/avatar8.jpg' %}" alt="Image" class="img-circle"></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+       </div>
+    </section>
+
+
+      <section class="margin_60 white_bg">
+          <div class="container">
+            <div class="row">
+            <div class="col-md-8 col-sm-6">
+                <img src="{% static 'img/laptop.png' %}" alt="Laptop" class="img-responsive laptop hidden-xs">
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <h3><span>Con eCharli</span> Comienza Aprender</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
+                </p>
+                <ul class="list_order">
+                    <li><span>1</span>Selecciona tu curso preferido</li>
+                    <li><span>2</span>Pago en línea</li>
+                    <li><span>3</span>Observarlos desde tu pantalla</li>
+                </ul>
+                <a href="all_tour_list.html" class="btn_1">Empieza Ahora</a>
+            </div>
+        </div><!-- End row -->
+        </div><!-- End container -->
+    </section><!-- End section -->
+
+    <section class="container margin_60">
+
+        <div class="main_title">
+            <h2>Últimos <span>Cursos</span> en Echarli</h2>
+            <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+        </div>
+
+              <div class="boxes">
+               <div class="row">
+                   <div class="col-lg-4 col-md-6">
+                        <div class="box background-white">
+                            <div class="box-picture">
+                                <a href="#"><img src="{% static 'img/cursos/guitar-medium.jpg' %}" alt=""></a>
+                                <div class="short_info">
+                                <span class="price"><sup>$</sup>1,500 MXN</span>
+                            </div>
+                            </div><!-- /.box-picture -->
+
+                            <div class="box-body">
+                                <div class="box-author">
+
+                                    <a href="#">
+                                        <img src="{% static 'img/authors/autor1.jpg' %}" alt="">
+                                        <span></span>
+                                    </a>
+                                </div><!-- /.box-author -->
+                                <h2 class="box-title center">
+                                        <a href="#">Fernanda Flores</a>
+                                </h2><!-- /.box-title -->
+
+                                <h3 class="box-title-plains">
+                                    <div class="center">
+                        <a href="#">Aprende Guitarra desde cero.</a></div>
+                        </h3><!-- /.box-title-plain -->
+
+                                <div class="box-content center">
+                                Gustavo A. Madero, CDMX
+                            </div><!-- /.box-content -->
+
+                        <div class="box-content">
+                            <div class="box-meta clearfix">
+                                <div class="rating pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-empty"></i>
+                                        <small>(75)</small><span> Evaluaciones</span>
+                                    </a>
+                                </div><!-- /.rating -->
+
+                                <div class="favourite pull-right">
+                                    <a href="#"><i class="fa fa-heart-o fa-2x' %}"></i></a>
+                                </div><!-- /.fovourite -->
+                                    </div>
+                                    </div>
+                                </div><!-- /.box-meta -->
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+
+                   <div class="col-lg-4 col-md-6">
+                        <div class="box background-white">
+                            <div class="box-picture">
+                                <a href="#"><img src="{% static 'img/cursos/violin-medium.jpg' %}" alt=""></a>
+                                <div class="short_info">
+                                <span class="price"><sup>$</sup> 150,000MXN</span>
+                            </div>
+                            </div><!-- /.box-picture -->
+
+                            <div class="box-body">
+                                <div class="box-author">
+
+                                    <a href="#">
+                                        <img src="{% static 'img/authors/george-avatar.jpg' %}" alt="">
+                                        <span></span>
+                                    </a>
+                                </div><!-- /.box-author -->
+                                <h2 class="box-title center">
+                                        <a href="#">Juan Jímenez</a>
+                                </h2><!-- /.box-title -->
+
+                                <h3 class="box-title-plains">
+                                    <div class="center">
+                        <a href="#">Aprende Violín.</a></div>
+                        </h3><!-- /.box-title-plain -->
+
+                                <div class="box-content center">
+                                Ciuda de Alvarado, Tamps
+                            </div><!-- /.box-content -->
+
+                        <div class="box-content">
+                            <div class="box-meta clearfix">
+                                <div class="rating pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-empty"></i>
+                                        <small>(75)</small><span> Evaluaciones</span>
+                                    </a>
+                                </div><!-- /.rating -->
+
+                                <div class="favourite pull-right">
+                                    <a href="#"><i class="fa fa-heart fa-2x"></i></a>
+                                </div><!-- /.fovourite -->
+                                    </div>
+                                    </div>
+                                </div><!-- /.box-meta -->
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+
+            <div class="col-lg-4 col-md-6">
+                        <div class="box background-white">
+                            <div class="box-picture">
+                                <a href="#"><img src="{% static 'img/cursos/2-medium.jpg' %}" alt=""></a>
+                                <div class="short_info">
+                                <span class="price"><sup>$</sup>300 MXN</span>
+                            </div>
+                            </div><!-- /.box-picture -->
+
+                            <div class="box-body">
+                                <div class="box-author">
+
+                                    <a href="#">
+                                        <img src="{% static 'img/authors/woman-6.jpg' %}" alt="">
+                                        <span></span>
+                                    </a>
+                                </div><!-- /.box-author -->
+                                <h2 class="box-title center">
+                                        <a href="#">Susana Huerta</a>
+                                </h2><!-- /.box-title -->
+
+                                <h3 class="box-title-plains">
+                                    <div class="center">
+                        <a href="#">Aprende Piano.</a></div>
+                        </h3><!-- /.box-title-plain -->
+
+                                <div class="box-content center">
+                                Playa del Carmen, QR
+                            </div><!-- /.box-content -->
+
+                        <div class="box-content">
+                            <div class="box-meta clearfix">
+                                <div class="rating pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-empty"></i>
+                                        <small>(15)</small><span> Evaluaciones</span>
+                                    </a>
+                                </div><!-- /.rating -->
+
+                                <div class="favourite pull-right">
+                                    <a href="#"><i class="fa fa-heart fa-2x"></i></a>
+                                </div><!-- /.fovourite -->
+                                    </div>
+                                    </div>
+                                </div><!-- /.box-meta -->
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+
+                   <div class="col-lg-4 col-md-6">
+                        <div class="box background-white">
+                            <div class="box-picture">
+                                <a href="#"><img src="{% static 'img/cursos/bateria-medium.jpg' %}" alt=""></a>
+                                <div class="short_info">
+                                <span class="price"><sup>$</sup>300 MXN</span>
+                            </div>
+                            </div><!-- /.box-picture -->
+
+                            <div class="box-body">
+                                <div class="box-author">
+
+                                    <a href="#">
+                                        <img src="{% static 'img/authors/guy-8.jpg' %}" alt="">
+                                        <span></span>
+                                    </a>
+                                </div><!-- /.box-author -->
+                                <h2 class="box-title center">
+                                        <a href="#">Maurico Herrera</a>
+                                </h2><!-- /.box-title -->
+
+                                <h3 class="box-title-plains">
+                                    <div class="center">
+                        <a href="#">Aprende Bateria.</a></div>
+                        </h3><!-- /.box-title-plain -->
+
+                                <div class="box-content center">
+                                Cuernavaca, MOR
+                            </div><!-- /.box-content -->
+
+                        <div class="box-content">
+                            <div class="box-meta clearfix">
+                                <div class="rating pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-empty"></i>
+                                        <small>(15)</small><span> Evaluaciones</span>
+                                    </a>
+                                </div><!-- /.rating -->
+
+                                <div class="favourite pull-right">
+                                    <a href="#"><i class="fa fa-heart fa-2x"></i></a>
+                                </div><!-- /.fovourite -->
+                                    </div>
+                                    </div>
+                                </div><!-- /.box-meta -->
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="box background-white">
+                            <div class="box-picture">
+                                <a href="#"><img src="{% static 'img/cursos/cocina-medium.jpg' %}" alt=""></a>
+                                <div class="short_info">
+                                <span class="price"><sup>$</sup>500 MXN</span>
+                            </div>
+                            </div><!-- /.box-picture -->
+
+                            <div class="box-body">
+                                <div class="box-author">
+
+                                    <a href="#">
+                                        <img src="{% static 'img/authors/woman-5.jpg' %}" alt="">
+                                        <span></span>
+                                    </a>
+                                </div><!-- /.box-author -->
+                                <h2 class="box-title center">
+                                        <a href="#">Alicia López</a>
+                                </h2><!-- /.box-title -->
+
+                                <h3 class="box-title-plains">
+                                    <div class="center">
+                        <a href="#">Aprende Cocina.</a></div>
+                        </h3><!-- /.box-title-plain -->
+
+                                <div class="box-content center">
+                                Pachuca, HGO
+                            </div><!-- /.box-content -->
+
+                        <div class="box-content">
+                            <div class="box-meta clearfix">
+                                <div class="rating pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-empty"></i>
+                                        <small>(35)</small><span> Evaluaciones</span>
+                                    </a>
+                                </div><!-- /.rating -->
+
+                                <div class="favourite pull-right">
+                                    <a href="#"><i class="fa fa-heart fa-2x"></i></a>
+                                </div><!-- /.fovourite -->
+                                    </div>
+                                    </div>
+                                </div><!-- /.box-meta -->
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+
+                   <div class="col-lg-4 col-md-6">
+                        <div class="box background-white">
+                            <div class="box-picture">
+                                <a href="#"><img src="{% static 'img/cursos/yoga-medium.jpg' %}" alt=""></a>
+                                <div class="short_info">
+                                <span class="price"><sup>$</sup> 50,000MXN</span>
+                            </div>
+                            </div><!-- /.box-picture -->
+
+                            <div class="box-body">
+                                <div class="box-author">
+
+                                    <a href="#">
+                                        <img src="{% static 'img/authors/woman-4.jpg' %}" alt="">
+                                        <span></span>
+                                    </a>
+                                </div><!-- /.box-author -->
+                                <h2 class="box-title center">
+                                        <a href="#">Jimena Suarez</a>
+                                </h2><!-- /.box-title -->
+
+                                <h3 class="box-title-plains">
+                                    <div class="center">
+                        <a href="#">Clase de yoga desde tu lap.</a></div>
+                        </h3><!-- /.box-title-plain -->
+
+                                <div class="box-content center">
+                                Álvaro Obregón, CDMX
+                            </div><!-- /.box-content -->
+
+                        <div class="box-content">
+                            <div class="box-meta clearfix">
+                                <div class="rating pull-left">
+                                    <a href="#">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-empty"></i>
+                                        <small>(25)</small><span> Evaluaciones</span>
+                                    </a>
+                                </div><!-- /.rating -->
+
+                                <div class="favourite pull-right">
+                                    <a href="#"><i class="fa fa-heart-o fa-2x"></i></a>
+                                </div><!-- /.fovourite -->
+                                    </div>
+                                    </div>
+                                </div><!-- /.box-meta -->
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                   <hr>
+
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li><a href="#">Prev</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div><!-- end pagination-->
+
+
+           </div><!-- End row -->
+        </div><!-- End boxes -->
+    </section><!-- End section -->
+
+
+
+  <section class="margin_60 white_bg">
+    <div class="container margin_60">
+	<div class="main_title">
+		<h2>Con <span>eCharli </span>Aprende lo que quieras</h2>
+		<p>
+			Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
+		</p>
+	</div>
+	<hr>
+    <div class="row">
+		<div class="col-md-4">
+			<img src="{% static 'img/curso_box_11.jpg' %}" alt="Image" class="img-responsive styled">
+		</div>
+        <div class="col-md-7 col-md-offset-1">
+			<h3>Explora <span>Descubre</span></h3>
+			<p>
+				Ludus albucius <strong>adversarium eam eu</strong>. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo.
+			</p>
+			<h4>Aprende y enseña alrededor del mundo </h4>
+			<p>
+				Ad cum movet fierent assueverit, mei stet legere ne. Mel at vide soluta, ut utamur antiopam inciderint sed. Ut iriure perpetua voluptaria has, vim postea denique in, <strong>mollis pertinax elaboraret</strong> sed in. Per no vidit timeam, quis omittam sed at. Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae.
+			</p>
+			<h4>¿Qué es E-Charle?</h4>
+			<p>
+				Ad cum movet fierent assueverit, mei stet legere ne. Mel at vide soluta.
+			</p>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<ul class="list_ok">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>No scripta electram necessitatibus sit</li>
+						<li>Quidam percipitur instructior an eum</li>
+						<li>Ut est saepe munere ceteros</li>
+						<li>No scripta electram necessitatibus sit</li>
+						<li>Quidam percipitur instructior an eum</li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<ul class="list_ok">
+						<li>Lorem ipsum dolor sit amet</li>
+						<li>No scripta electram necessitatibus sit</li>
+						<li>Quidam percipitur instructior an eum</li>
+						<li>No scripta electram necessitatibus sit</li>
+					</ul>
+				</div>
+			</div>
+			<!-- End row  -->
+        </div>
+	</div><!-- End row -->
+    </div>
+    </section>
+
+        <div class="container margin_60">
+            <div class="main_title hidden-xs">
+                <h2>Historias <span>de éxito</span> echarli</h2>
+                <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="pricing-table ">
+                        <p>
+                        <a href="#"><img src="{% static 'img/idea1.jpg' %}" alt="Image" class="img-responsive hidden-xs"></a>
+                        </p>
+                        <h4>Crear tu Historia en <span>eCharli</span></h4>
+                        <p>
+                        Lorem ipsum dolor sit amet, vix erat audiam ei.
+                    </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="pricing-table ">
+                    <p><a href="#"><img src="{% static 'img/people.jpg' %}" alt="Pic" class="img-responsive hidden-xs"></a></p>
+                        <div class="ribbon popular"></div>
+                         <h4>Historia  <span>Uno</span></h4>
+                        <p>
+                        Lorem ipsum dolor sit amet, vix erat audiam ei.
+                                </p>
+                        </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="pricing-table ">
+                    <p><a href="#"><img src="{% static 'img/persone2.jpg' %}" alt="Pic" class="img-responsive hidden-xs"></a>
+                        </p>
+                        <h4>Historia  <span>Dos</span></h4>
+                        <p>
+                        Lorem ipsum dolor sit amet, vix erat audiam ei.
+                                </p>
+                        </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 text-center">
+                    <div class="pricing-table ">
+                        <p><a href="#"><img src="{% static 'img/persone1.jpg' %}" alt="Pic" class="img-responsive hidden-xs"></a>
+                        </p>
+                        <h4>Historia  <span>tres</span></h4>
+                        <p>
+                        Lorem ipsum dolor sit amet, vix erat audiam ei.
+                                </p>
+                        </div>
+                </div>
+
+            </div><!-- End row -->
+        </div><!-- End container -->
+
+
+
+    <section class="white_bg">
+    <div id="directions">
+  	<div class="container">
+    	<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+       <form action="" method="get" target="_blank">
+				<div class="input-group">
+					<input type="text" name="saddr" placeholder="Escribe tu mail" class="form-control style-2" />
+					<input type="hidden" name="daddr" value=""/><!-- Write here your  mail -->
+					<span class="input-group-btn">
+					<button class="btn" type="submit" value="Subscribe" style="margin-left:0;">Suscribete</button>
+					</span>
+				</div><!-- /input-group -->
+			</form>
+          </div>
+        </div>
+    </div>
+  </div><!-- end directions-->
+
+    </section><!-- End section -->
+{% endblock %}

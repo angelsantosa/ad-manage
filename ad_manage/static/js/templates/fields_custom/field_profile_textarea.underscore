@@ -1,0 +1,49 @@
+<div class="wrapper-u-field-custom">
+    <div class="u-field-custom-header">
+        <% if (titleVisible) { %>
+            <% if (mode === 'edit') { %>
+                <label class="u-field-custom-title" for="u-field-custom-textarea-<%- id %>" id="u-field-custom-title-<%- id %>"></label>
+            <% } else { %>
+                <span class="u-field-custom-title" id="u-field-custom-title-<%- id %>" aria-hidden="true"></span>
+            <% } %>
+        <% } else { %>
+            <label class="sr" for="u-field-custom-title-<%- id %>">
+                <%- screenReaderTitle %>
+            </label>
+        <% } %>
+        <% if (messagePosition === 'header') { %>
+            <span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+                <span class="u-field-custom-message-notification" aria-live="polite"></span>
+                <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+            </span>
+        <% }%>
+    </div>
+
+    <div class="u-field-custom-value" id="u-field-custom-value-<%- id %>"
+        <% if (mode === 'edit') { %>
+            aria-labelledby="u-field-custom-title-<%- id %>"><textarea id="u-field-custom-textarea-<%- id %>" rows="4"
+            <% if (message) { %>
+                aria-describedby="u-field-custom-message-help-<%- id %>"
+            <% } %>
+            ><%- value %></textarea>
+        <% } else if (editable === 'never') { %>
+            ><p class="sr"><%- screenReaderTitle %></p><span class="u-field-custom-value-readonly" aria-hidden="false"
+            <% if (message) { %>
+                aria-describedby="u-field-custom-message-help-<%- id %>"
+            <% } %>
+            ><%- value %></span>
+        <% } else { %>
+            ><a href="#"><p class="sr"><%- screenReaderTitle %></p><span class="u-field-custom-value-readonly" aria-hidden="false" aria-describedby="u-field-custom-placeholder-value-<%- id %>"><%- value %></span><span class="sr"><%- gettext('Click to edit') %></span></a>
+            <span class="sr" id="u-field-custom-placeholder-value-<%- id %>"><%- placeholderValue %></span>
+        <% } %>
+    </div>
+
+    <div class="u-field-custom-footer">
+        <% if (messagePosition === 'footer') { %>
+            <span class="u-field-custom-message" id="u-field-custom-message-<%- id %>">
+                <span class="u-field-custom-message-notification" aria-live="polite"></span>
+                <span class="u-field-custom-message-help" id="u-field-custom-message-help-<%- id %>"> <%- message %></span>
+            </span>
+        <% } %>
+    </div>
+</div>

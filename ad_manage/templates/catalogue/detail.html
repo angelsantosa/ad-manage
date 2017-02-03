@@ -1,0 +1,475 @@
+{% extends "layout.html" %}
+
+{% load history_tags %}
+{% load currency_filters %}
+{% load reviews_tags %}
+{% load staticfiles %}
+{% load product_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ad/base.css' %}" />
+{% endblock %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script src="/static/js/ad/common_scripts_min.js"></script>
+    <script src="/static/js/ad/functions.js"></script>
+
+    <!-- Map -->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="/static/js/ad/map_home.js"></script>
+    <script type="text/javascript" src="/static/js/ad/infobox.js"></script>
+    <!-- Fixed sidebar -->
+    <!-- Fixed sidebar -->
+    <script src="/static/js/ad/theia-sticky-sidebar.js"></script>
+    <script>
+        jQuery('#sidebar').theiaStickySidebar({
+          additionalMarginTop: 60
+        });
+    </script>
+{% endblock %}
+
+{% block header_complete %}
+<header>
+
+   <div id="position">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+            </div>
+                    <ul>
+                        <li>
+                            <a href="">Perfil</a>
+                        </li>
+                        <li class="submenu hidden-xs">
+                            <a href="">Amigos </a>
+                        </li>
+                         <li class="submenu hidden-xs">
+                            <a href="">Mapa</a>
+
+                        </li>
+                        <li class="submenu hidden-xs">
+                            <a href="">Tu Curso</a>
+                        </li>
+                          <li class="submenu hidden-xs">
+                            <a href="">Calendario </a>
+                        </li>
+                        <li class="submenu hidden-xs">
+                            <a href="">Chat</a>
+                        </li>
+                        <li class="submenu hidden-xs">
+                            <a href="">Bandeja de Entrada</a>
+                        </li>
+                    </ul>
+        </div>
+    </div><!-- container -->
+    </div>
+</header><!-- End Header -->
+
+{% endblock header_complete %}
+
+{% block title %}
+    {{ product.title }} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+    {{ product.description|default:""|striptags }}
+{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content_wrapper %}
+
+{% block product_gallery %}
+    {% include "catalogue/partials/gallery.html" %}
+{% endblock %}
+
+<div class="container margin_60">
+  {% include "partials/alert_messages.html" %}
+	<div class="row">
+        <div class="col-md-8" id="single_course_desc">
+
+             <div class="col-md-3">
+             <p>
+			<img style="height: 180px;" src="{{ mentor.avatar }}" alt="Image" class="img-circle styled">
+		</p>
+            </div>
+                <div class="col-md-9">
+					<h2>{{ product.get_title }}</h2>
+          <h3>{{ mentor.full_name }} <h4>{{ mentor.country }}, {{ mentor.city }}</h4></h3>
+          {% iffeature "reviews" %}
+              {% include "catalogue/reviews/partials/review_stars.html" %}
+          {% endiffeature %}
+
+      </div>
+
+			<div id="single_course_feat">
+				<ul>
+					<li>
+           <a href="#"><i class="icon-music-4"></i></a>Musica
+          </li>
+					<li><a href="#"><i class="icon-group"></i></a>Colectivo</li>
+					<li><a href="#"><i class="icon-book-4"></i></a>Programa</li>
+					<li><a href="#"><i class="indicator icon-signal-4"></i></a>
+                        <div class="styled-select-filters">
+								<select>
+									<option value="" selected>Nivel</option>
+									<option value="lower">Basico</option>
+									<option value="medium">Intermedio</option>
+                                    <option value="higher">Experto</option>
+                                    </select>
+				</div>
+                    </li>
+					<li><a href="#"><i class=" icon-college"></i><span >(100)</span></a> Aprendices
+                    </li>
+					<li><a href="#" data-toggle="modal" data-target="#modal_single_resources"><i class="icon-download-alt"></i></a>Recursos</li>
+                    </ul>
+              </div><!-- End Profile Anuncio -->
+
+       <hr>
+       {% block product_description %}
+           {% if product.description %}
+ <div class="row">
+     <div class="col-md-3">
+<h3>{% trans "Product Description" %}</h3>
+</div>
+<div class="col-md-9">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#informacio" data-toggle="tab"><h5>{% trans "Product Description" %}</h5></a></li>
+    </ul>
+<div class="tab-content">
+      <div class="tab-pane active" id="informacio">
+<p>{{ product.description|safe }}</p>
+    </div>
+</div>
+</div>
+</div><!-- End row -->
+
+         {% endif %}
+     {% endblock %}
+			<hr>
+      {% block product_info %}
+
+      <div class="row">
+          <div class="col-md-3">
+     <h3>{% trans "Product Information" %}</h3>
+     </div>
+     <div class="col-md-9">
+         <ul class="nav nav-tabs">
+             <li class="active"><a href="#informacion" data-toggle="tab"><h5>{% trans "Product Information" %}</h5></a></li>
+         </ul>
+     <div class="tab-content">
+      <div class="tab-pane active" id="informacion">
+      <div class="sub-header">
+          <h2></h2>
+      </div>
+      <table class="table table-striped">
+          <tr>
+              <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>
+          </tr>
+
+          {% purchase_info_for_product request product as session %}
+          {% if session.price.exists %}
+              <tr>
+                  <th>{% trans "Price (excl. tax)" %}</th><td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
+              </tr>
+              {% if session.price.is_tax_known %}
+                  <tr>
+                      <th>{% trans "Price (incl. tax)" %}</th><td>{{ session.price.incl_tax|currency:session.price.currency }}</td>
+                  </tr>
+                  <tr>
+                      <th>{% trans "Tax" %}</th><td>{{ session.price.tax|currency:session.price.currency }}</td>
+                  </tr>
+              {% endif %}
+              <tr>
+                  <th>{% trans "Availability" %}</th>
+                  <td>{{ session.availability.message }}</td>
+              </tr>
+          {% endif %}
+          {% for av in product.attribute_values.all %}
+              <tr>
+                  <th>{{ av.attribute.name }}</th>
+                  <td>{{ av.value_as_html }}</td>
+              </tr>
+          {% endfor %}
+          {% iffeature "reviews" %}
+              <tr>
+                  <th>{% trans "Number of reviews" %}</th>
+                  <td>{{ product.num_approved_reviews }}</td>
+              </tr>
+          {% endiffeature %}
+      </table>
+ </div>
+           </div>
+           </div>
+           </div><!-- End row -->
+      {% endblock %}
+
+<hr>
+			<div class="row">
+				<div class="col-md-3">
+					<h3>Horario</h3>
+				</div>
+				<div class="col-md-9">
+					<div class=" table-responsive">
+						<table class="table table-striped">
+						<thead>
+						<tr>
+							<th colspan="2">
+								 Día y Mes
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								10.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								<span class="label label-danger">Cerrado</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la Semana
+							</td>
+							<td>
+								10.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong><em>Fin de Curso</em></strong>
+							</td>
+							<td>
+								<strong>17.00</strong>
+							</td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+					<div class=" table-responsive">
+						<table class="table table-striped">
+						<thead>
+						<tr>
+							<th colspan="2">
+								 Día - Mes
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								10.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								<span class="label label-danger">sin clase</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								09.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Día de la semana
+							</td>
+							<td>
+								10.00 - 17.30
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong><em>Fin de Curso</em></strong>
+							</td>
+							<td>
+								<strong>17.00</strong>
+							</td>
+						</tr>
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<hr>
+
+            <div id="map" class="map"></div><!-- End map -->
+
+            <hr>
+
+			<div class="row">
+				<div class="col-md-3">
+					<h3>Evaluaciones </h3>
+				</div>
+				<div class="col-md-9">
+                	<div id="general_rating">11 Evaluaciones
+                    <div class="rating">
+							<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><i class="icon-star"></i>
+						</div>
+                    </div><!-- End general_rating -->
+                    <div class="row" id="rating_summary">
+                    	<div class="col-md-6">
+                        	<ul>
+                            	<li>Calificación
+                                    <div class="rating">
+                                            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><i class="icon-star"></i>
+                                    </div>
+                                </li>
+                                <li>Mentor
+                                <div class="rating">
+                                            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                        	<ul>
+                            	<li>Precio
+                                <div class="rating">
+                                            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><i class="icon-star"></i>
+                                    </div>
+                                </li>
+                                <li>Calidad
+                                <div class="rating">
+                                            <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- End row -->
+                    <hr>
+					<div class="review_strip_single">
+						<img src="" alt="Image" class="img-circle">
+						<small> - Día/Mes/Año -</small>
+						<h4>Nombre Usuario</h4>
+						<p>
+							 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+						</p>
+						<div class="rating">
+							<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><i class="icon-star"></i>
+						</div>
+					</div><!-- End review strip -->
+
+					<div class="review_strip_single">
+						<img src="" alt="Image" class="img-circle">
+						<small> - Día/Mes/Año -</small>
+						<h4>Nombre Usuario</h4>
+						<p>
+							 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+						</p>
+						<div class="rating">
+							<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i><i class="icon-star"></i>
+						</div>
+					</div><!-- End review strip -->
+
+                       <p class="text-center nopadding">
+            <a href="#" class="btn_1 medium"><i class="icon-eye-7"></i>Mira todas las evaluciones (144) </a>
+        </p>
+				</div>
+            </div>
+		</div><!--End  single_tour_desc-->
+
+        <div>
+        <p></p>
+        </div>
+
+		<aside class="col-md-4" id="sidebar" style="z-index:999">
+        <div class="theiaStickySidebar">
+		<div class="box_style_1 expose" id="booking_box">
+      {% block product_stock_record %}
+          {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+      {% endblock %}
+
+      {% block product_basket_form %}
+          {% include "catalogue/partials/add_to_basket_form.html" %}
+      {% endblock %}
+			<hr>
+		</div><!--/box_style_1 -->
+      </div><!--/end sticky -->
+		</aside>
+	</div><!--End row -->
+</div><!--End container -->
+
+{% endblock content_wrapper %}

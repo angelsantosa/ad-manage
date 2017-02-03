@@ -1,0 +1,6 @@
+@import url("style.css");																		/* Main theme styles */
+@import url("menu.css");																		/* Menu styles */
+@import url("responsive.css");																/* Responsive */
+@import url("pop_up.css");																	/* Popup Advertising */
+@import url("boxes.css");
+@import url("custom.css");

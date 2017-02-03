@@ -1,0 +1,55 @@
+// third-party scss
+// ====================
+
+/* Bootstrap 3*/
+$icon-font-path: "/static/fonts/bootstrap/";
+@import 'plugins/bootstrap/bootstrap-sprockets';
+@import 'plugins/bootstrap/_bootstrap';
+
+/* Font Awesome */
+@import 'plugins/font-awesome/font-awesome';
+
+/* fontello */
+@import url('plugins/fontello/icon_set_1.css');
+@import url('plugins/fontello/icon_set_2.css');
+@import url('plugins/fontello/fontello.css');
+/* Rapido 1.2 */
+@import 'plugins/rapido/rapido';
+@import 'plugins/rapido/plugins';
+
+/*iCheck*/
+@import 'plugins/icheck/all.css';
+
+/* bootrap-star-rating */
+@import 'plugins/bootstrap-star-rating/star-rating';
+/* bootstrap-daterangepciekr */
+@import 'plugins/bootstrap-daterangepicker/daterangepicker';
+/* jquery-ui */
+@import 'plugins/jquery-ui/jquery-ui.min';
+/* jquery-ui-slider-pips */
+@import 'plugins/jquery-ui-slider-pips/jquery-ui-slider-pips.scss';
+
+/* Backbone.modal */
+@import 'plugins/backbone.modal/backbone.modal.scss';
+@import 'plugins/backbone.modal/backbone.modal.theme.scss';
+/* bootstrap-datepicker */
+
+@import 'plugins/bootstrap-datepicker/bootstrap-datepicker.min.css';
+@import 'plugins/bootstrap-datepicker/date_time_picker.css';
+@import 'plugins/jquery-magnific-popup/magnific-popup.css';
+@import 'plugins/bootstrap-datetimepicker/bootstrap-datetimepicker-build';
+
+// echarlie sass
+// ====================
+@import 'base/vars'; /* Variables de echarli */
+//@import 'base/default_echarli'; /* Diseño base echarli */
+
+// apps scss
+// ====================
+//@import 'index/base'; /* Diseños en index */
+//@import 'perfil/base'; /* Diseños en perfil */
+@import 'search/base';
+//@import "search/_boxes";
+
+// custom scss
+// ====================
