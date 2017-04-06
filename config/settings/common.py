@@ -91,9 +91,6 @@ MIDDLEWARE_CLASSES = (
 
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
-MIGRATION_MODULES = {
-    'sites': 'ad_manage.contrib.sites.migrations'
-}
 
 # DEBUG
 # ------------------------------------------------------------------------------
@@ -126,7 +123,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db('DATABASE_URL', default='postgres:///ad_manage'),
+    'default': env.db('DATABASE_URL', default='postgres:///admanage'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 

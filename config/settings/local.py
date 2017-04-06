@@ -44,19 +44,19 @@ CACHES = {
 
 INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
 
-DEVELOPMENT_APPS = (
-    'debug_toolbar',
-)
+#DEVELOPMENT_APPS = (
+#    'debug_toolbar',
+#)
 # django-extensions
-INSTALLED_APPS += DEVELOPMENT_APPS
+#INSTALLED_APPS += DEVELOPMENT_APPS
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
+#DEBUG_TOOLBAR_PATCH_SETTINGS = False
 # Your local stuff: Below this line define 3rd party library settings
 
-LOCAL_MIDDLEWARE_CLASSES = (
+#LOCAL_MIDDLEWARE_CLASSES = (
     # ...
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+#    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # ...
-)
+#)
 
-MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
+#MIDDLEWARE_CLASSES += LOCAL_MIDDLEWARE_CLASSES
