@@ -78,3 +78,7 @@ class Document(models.Model):
     @property
     def get_document_status_choice(self, choice):
         return dict(self.DOCUMENT_STATUS_CHOICES).get(choice)
+
+    @property
+    def get_document_type(self):
+        return self.doc_type

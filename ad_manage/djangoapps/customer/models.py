@@ -26,7 +26,7 @@ class CustomerProfile(models.Model):
 	DEFAULT_AVATAR = static('img/default-avatar.jpg')
 	MALE = 'M'
 	FEMALE = 'F'
-	OTHER = 'O'
+	OTHER = ''
 	GENDER_CHOICES = (
 		(MALE, ugettext_noop('Male')),
 		(FEMALE, ugettext_noop('Female')),

@@ -34,6 +34,9 @@ urlpatterns = [
     # (r'', include(shop.urls)),
 
     # To use Django user-to-user messages.
+
+    url(r'customer/', include('customer.urls', namespace='customeri')),
+
     url(r'^messages/', include('django_messages.urls')),
     # document_manager
     url(r'^document_manager/', include('document_manager.urls')),
