@@ -140,7 +140,7 @@ class CustomerProfile(models.Model):
 		Convenience method that returns a boolean indicating
 		the user is Mentor.
 		"""
-		return int(self.status) == self.MENTOR
+		return True if int(self.status) == self.MENTOR else False
 
 	@property
 	def is_candidate(self):

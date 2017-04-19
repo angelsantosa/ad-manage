@@ -70,3 +70,5 @@ geopy==1.11.0
 drf-haystack==1.5.6
 
 django-jsonify==0.3.0
+
+django-formtools==2.0

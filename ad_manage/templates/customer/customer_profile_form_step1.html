@@ -1,0 +1,269 @@
+<form class="" action="{% url 'customeri:become-mentor-step1' %}" method="post">
+{% csrf_token %}
+{{ form.non_field_errors }}
+  <div class="row margin-bottom-40">
+    <!--Basic Example-->
+    <div class="col-md-12">
+      <h4>General infomation</h4>
+    </div>
+    <div class="col-md-6">
+
+<div class="row margin-bottom-40">
+
+  <div class="col-md-12">
+      <div class="form-group">
+        {{ form.email.errors }}
+        <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.email.id_for_label }}">
+          Email
+        </label>
+
+        <div class="col-sm-9">
+          {{ form.email }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+      <div class="form-group">
+        {{ form.first_name.errors }}
+        <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.first_name.id_for_label }}">
+          First name
+        </label>
+
+        <div class="col-sm-9">
+          {{ form.first_name }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+      <div class="form-group">
+        {{ form.last_name.errors }}
+        <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.last_name.id_for_label }}">
+          Last name
+        </label>
+
+        <div class="col-sm-9">
+          {{ form.last_name }}
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    <!--End Basic Example-->
+
+    <!--Checkboxes and Radio Addons-->
+    <div class="col-md-6">
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+      <div class="form-group">
+        {{ form.birth_date.errors }}
+        <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.birth_date.id_for_label }}">
+          Birthday
+        </label>
+
+        <div class="col-sm-9">
+          {{ form.birth_date }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+      <div class="form-group">
+        {{ form.gender.errors }}
+        <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.gender.id_for_label }}">
+          Gender
+        </label>
+
+        <div class="col-sm-9">
+          {{ form.gender }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+    <!--End Checkboxes and Radio Addons-->
+  </div>
+
+
+  <div class="row margin-bottom-40">
+    <div class="col-md-12">
+      <h4>About me</h4>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        {{ form.about_me.errors }}
+
+        <label class="control-label" class="control-label" for="{{ form.about_me.id_for_label }}">
+        </label>
+<div class="col-md-12">
+  {{ form.about_me }}
+</div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row margin-bottom-40">
+
+    <div class="col-md-12">
+      <h4>Address</h4>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.country_name.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.country_name.id_for_label }}">
+              Country
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.country_name }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.address_field_one.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.address_field_one.id_for_label }}">
+              Address Line 1
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.address_field_one }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.address_field_two.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.address_field_two.id_for_label }}">
+              Address Line 2
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.address_field_two }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.state_name.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.state_name.id_for_label }}">
+              State
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.state_name }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+    <div class="col-md-6">
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.outdoor_number.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.outdoor_number.id_for_label }}">
+              Outdoor number
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.outdoor_number }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.internal_number.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.internal_number.id_for_label }}">
+              Internal number
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.internal_number }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row margin-bottom-40">
+
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.postal_code.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.postal_code.id_for_label }}">
+              Postal code
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.postal_code }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+<button type="submit" class="btn btn-success pull-right">Save and Next</button>
+    </div>
+
+  </div>
+
+</form>

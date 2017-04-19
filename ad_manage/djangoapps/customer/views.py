@@ -1,11 +1,13 @@
 from oscar.apps.customer.views import AccountRegistrationView as CoreAccountRegistrationView
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import user_passes_test
-from .models import CustomerDocument
+from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+
+from .models import CustomerDocument, CustomerProfile
 from document_manager.models import Document
-from .perms_becomementor import second_step, first_step
+from .perms_becomementor import second_step, first_step, active_mentor
+
 
 from .forms import EmailUserCreationForm, StepOneForm, StepTwoForm
 
@@ -19,11 +21,24 @@ class CustomerMentorCompleteProfileStepOne(FormView):
 
     template_name = 'customer/complete_profile_step1.html'
     form_class = StepOneForm
-    success_url = "/"
 
-    @method_decorator(user_passes_test(first_step, "/"))
-    def dispatch(self, *args, **kwargs):
-        return super(CustomerMentorCompleteProfileStepOne, self).dispatch(*args, **kwargs)
+    step_2_url = reverse_lazy("customeri:become-mentor-step2")
+
+    success_url = reverse_lazy("customeri:become-mentor-step2")
+
+    editable = False
+
+    def get_next_step_url(self):
+        return self.step_2_url
+
+    def get(self, request, *args, **kwargs):
+         #Handles GET requests and instantiates a blank version of the form.
+
+        if (active_mentor(self.request.user)):
+            return HttpResponseRedirect(self.get_next_step_url())
+        else:
+            form = self.get_form()
+            return self.render_to_response(self.get_context_data(form=form))
 
     def get_initial(self):
         """
@@ -37,6 +52,7 @@ class CustomerMentorCompleteProfileStepOne(FormView):
             'last_name': Usr.last_name,
             'email': Usr.email,
             'gender': Profi.gender,
+            'birth_date': Profi.birth_date,
             'about_me': Profi.about_me,
             'country_name': Profi.country_name,
             'state_name': Profi.state_name,
@@ -57,7 +73,7 @@ class CustomerMentorCompleteProfileStepOne(FormView):
         Usr.first_name = form.cleaned_data['first_name']
         Usr.last_name = form.cleaned_data['last_name']
         Usr.email = form.cleaned_data['email']
-
+        Profi.birth_date =form.cleaned_data['birth_date']
         Profi.gender = form.cleaned_data['gender']
         Profi.about_me = form.cleaned_data['about_me']
 
@@ -79,10 +95,14 @@ class CustomerMentorCompleteProfileStepTwo(FormView):
     template_name = 'customer/complete_profile_step2.html'
     form_class = StepTwoForm
     success_url = "/"
+    def get(self, request, *args, **kwargs):
+         #Handles GET requests and instantiates a blank version of the form.
 
-    @method_decorator(user_passes_test(second_step, login_url="/"))
-    def dispatch(self, *args, **kwargs):
-        return super(CustomerMentorCompleteProfileStepTwo, self).dispatch(*args, **kwargs)
+        if (active_mentor(self.request.user)):
+            return HttpResponseRedirect("/lul")
+        else:
+            form = self.get_form()
+            return self.render_to_response(self.get_context_data(form=form))
 
     def get_initial(self):
         """
@@ -107,9 +127,13 @@ class CustomerMentorCompleteProfileStepTwo(FormView):
 
         Profi.phone = form.cleaned_data['phone']
 
+        if(first_step(Usr)):
+            Profi.status = CustomerProfile.MENTOR
+
         doc_ide.save()
         doc_adrrs.save()
         doc_free_nigga.save()
+
         Profi.save()
 
         return super(CustomerMentorCompleteProfileStepTwo, self).form_valid(form)

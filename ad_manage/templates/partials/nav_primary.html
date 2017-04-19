@@ -9,7 +9,7 @@
         <ul>
           <li class="submenu">
             {% if user.customer_profile.is_mentor %}
-                <a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Create a course" %}</a>
+                <a href="{% url 'customeri:become-mentor-step1' %}" class="btn_full_outline">{% trans "Create a course" %}</a>
                 {% else %}
                 <a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Become a mentor" %}</a>
             {% endif %}

@@ -1,0 +1,131 @@
+<form class="" action="{% url 'customeri:become-mentor-step2' %}" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+{{ form.non_field_errors }}
+<div class="col-md-12">
+  <h4>Identity documents</h4>
+</div>
+
+<div class="col-md-12">
+<div class="row margin-bottom-40">
+
+  <div class="col-md-12">
+      <div class="form-group">
+        {{ form.doc_ide.errors }}
+        <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.doc_ide.id_for_label }}">
+          Official ID
+        </label>
+
+        <div class="col-sm-9">
+          {{ form.doc_ide }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row margin-bottom-40">
+
+    <div class="col-md-12">
+        <div class="form-group">
+          {{ form.doc_adrrs.errors }}
+          <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.doc_adrrs.id_for_label }}">
+            Proof of address
+          </label>
+
+          <div class="col-sm-9">
+            {{ form.doc_adrrs }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row margin-bottom-40">
+
+      <div class="col-md-12">
+          <div class="form-group">
+            {{ form.doc_free_nigga.errors }}
+            <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.doc_free_nigga.id_for_label }}">
+              Criminal record
+            </label>
+
+            <div class="col-sm-9">
+              {{ form.doc_free_nigga }}
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+<div class="col-md-12">
+  <h4>Knowlege</h4>
+</div>
+
+<div class="col-md-12">
+
+  <div class="row margin-bottom-40">
+
+    <div class="col-md-12">
+        <div class="form-group">
+          {{ form.doc_knowledge.errors }}
+          <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.doc_knowledge.id_for_label }}">
+            Certificate of studies
+          </label>
+
+          <div class="col-sm-9">
+            {{ form.doc_knowledge }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="row margin-bottom-40">
+
+    <div class="col-md-12">
+        <div class="form-group">
+          {{ form.doc_diplom.errors }}
+          <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.doc_diplom.id_for_label }}">
+            Diploma
+          </label>
+
+          <div class="col-sm-9">
+            {{ form.doc_diplom }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<div class="col-md-12">
+  <h4>Celphone number</h4>
+</div>
+
+<div class="col-md-12">
+
+  <div class="row margin-bottom-40">
+
+    <div class="col-md-12">
+        <div class="form-group">
+          {{ form.phone.errors }}
+          <label class="col-sm-3 control-label" class="col-sm-3 control-label" for="{{ form.phone.id_for_label }}">
+            Phone
+          </label>
+
+          <div class="col-sm-9">
+            {{ form.phone }}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-12">
+<a href="{% url 'customeri:become-mentor-step1' %}" class="btn btn-warnning pull-left">Back</a>
+<button type="submit" class="btn btn-success pull-right">Save and Finish</button>
+    </div>
+
+  </div>
+
+</form>

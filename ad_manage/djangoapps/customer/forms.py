@@ -41,6 +41,7 @@ class StepOneForm(forms.Form):
     email = forms.EmailField()
 
     gender = forms.ChoiceField(choices=CustomerProfile.GENDER_CHOICES)
+    birth_date = forms.DateField()
 
     about_me = forms.CharField(widget=forms.Textarea)
 
@@ -48,7 +49,7 @@ class StepOneForm(forms.Form):
     state_name = forms.CharField(max_length=100)
     address_field_one = forms.CharField(max_length=100)
     address_field_two = forms.CharField(max_length=100)
-    postal_code = forms.IntegerField()
+    postal_code = forms.CharField(max_length=100)
     outdoor_number = forms.CharField(max_length=100)
     internal_number = forms.CharField(max_length=100)
 

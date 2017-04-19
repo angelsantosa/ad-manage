@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% load i18n staticfiles %}
+
+{% block styles %}
+    {{ block.super }}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inside/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/footer.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/partials/navbar_second.css' %}" />
+{% endblock %}
+
+{% block extrascripts %}
+    {{ block.super }}
+    <script src="{% static 'js/home/plain_functions.js' %}"></script>
+{% endblock %}
+
+
+{% block title %}
+    {{ page_title }} | {% trans 'Complete your profile' %} | {{ block.super }}
+{% endblock %}
+
+{% block second_navbar %}
+  {% include "ad_manage/partials/navbar_second.html" %}
+{% endblock %}
+
+    {% block content_wrapper %}
+<div class="main-content" style="min-height:500px;margin-top:5px;">
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel margin-bottom-40">
+						<div class="panel-heading" style="background-image: -webkit-linear-gradient(top, #dae239 0px, #d7e02a 100%);color: #fff;background-color: #d7e02a;">
+							<h3 class="panel-title"><i class="fa fa-tasks"></i> Complete <span class="text-bold">profile</span></h3>
+						</div>
+						<div class="panel-body">
+						<p>In order to publish a course you have to complete your profile</p>
+
+              {% include 'customer/customer_profile_form_step2.html' %}
+						</div>
+					</div>
+  </div>
+
+</div>
+
+</div>
+
+{% endblock %}
