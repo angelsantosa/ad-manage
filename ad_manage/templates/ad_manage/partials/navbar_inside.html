@@ -18,7 +18,7 @@
 
         <p href class="mt-10 mb-0">
           {% if user.customer_profile.is_mentor %}
-              <a href="{% url 'become-mentor' %}" class="btn btn-green btn-sm mb-10">{% trans "Create a course" %}</a>
+              <a href="{% url 'customeri:become-mentor-step1' %}" class="btn btn-green btn-sm mb-10">{% trans "Create a course" %}</a>
               {% else %}
               <a href="{% url 'become-mentor' %}" class="btn btn-green btn-sm mb-10">{% trans "Become a mentor" %}</a>
           {% endif %}

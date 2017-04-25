@@ -72,33 +72,34 @@
                     <div class="col-md-9 col-sm-9 col-xs-9">
                         <ul id="top_links">
                          <li>
-                         <a href="#" id="button">
-                          <button class="btn_1 btn-xs">Publica tu Curso</button></a></li>
-                          <li><a href="#" id="messages"> Mensajes</a></li>
+                           {% if user.customer_profile.is_mentor %}
+                           <a href="{% url 'become-mentor' %}" id="button"><button class="btn_1 btn-xs">{% trans "Create a course" %}</button></a></li>
+                               {% else %}
+                               <a href="{% url 'become-mentor' %}" id="button"><button class="btn_1 btn-xs">{% trans "Become a mentor" %}</button></a></li>
+                           {% endif %}
+
+                          <li><a href="{% url 'customer:notifications-inbox' %}" id="messages"> Mensajes</a></li>
                            <li><a href="#" id="help_link">Ayuda</a></li>
                             <li class="dropdown dropdown-access">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profiel_main">
-                                   <img src="{% static 'tpl2/img/guide_2.jpg' %}" alt="Image" class="img-circle speaker" height="34" width="34">
-                                    <strong>Nombre</strong><span class="hidden-sm"> Apellido</span></a>
+                                   <img src="{{ user.customer_profile.get_avatar }}" alt="Image" class="img-circle speaker" height="34" width="34">
+                                    <strong>{{ user.get_full_name }}</strong></a>
                                         <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="icon-user-1"></i>
-                                        <span>Editar Perfil</span>
+                                        <li><a href="{% url 'customer:summary' %}"><i class="icon-user-1"></i>
+                                        <span>{% trans "Profile" %}</span>
                                         </a></li>
-                                        <li><a href="#"><i class="icon-cog"></i>
-                                        <span>Configuración</span>
+                                        <li><a href="{% url 'customer:summary' %}"><i class="icon-cog"></i>
+                                        <span>{% trans "Dashboard" %}</span>
                                         </a></li>
-                                        <li><a href="#"><i class="icon-user-add"></i>
-                                        <span>Invita a tus Amigos</span>
+                                        <li><a href="{% url 'customer:wishlists-list' %}"><i class="icon-user-add"></i>
+                                        <span>{% trans "Whishlist" %}</span>
                                         </a></li>
-                                        <li><a href="#"><i class=" icon-list-alt"></i>
-                                        <span>Tus Cursos</span>
-                                        </a></li>
-                                        <li><a href="#"><i class="icon-magic"></i>
-                                        <span>Wishlist</span>
+                                        <li><a href="{% url 'customer:wishlists-list' %}"><i class="icon-magic"></i>
+                                        <span>{% trans "Whishlist" %}</span>
                                         </a></li>
                                         <div class="divider"></div>
-                                        <li><a href="#"><i class="icon-left-1"></i>
-                                        <span>Salir</span>
+                                        <li><a href="{% url 'customer:logout' %}"><i class="icon-left-1"></i>
+                                        <span>{% trans "Logout" %}</span>
                                         </a></li>
                                         </ul>
                                 <!-- End Profile -->
@@ -133,32 +134,31 @@
                                     <li><a href="#">Whishlist</a></li>
                                 </ul>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);">Home <i class=""></i></a>
+                            <li class="submenu {% if active_tab == 'panel' %}active{% endif %}">
+                                <a href="{% url 'customer:profile-view' %}">{% trans "Panel" %}</a>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Perfil <i class=""></i></a>
+                            <li class="submenu {% if active_tab == 'profile' %}active{% endif %}">
+                                <a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a>
                             </li>
-                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Amigos <i class=""></i></a>
+                            <li class="submenu {% if active_tab == 'orders' %}active{% endif %}">
+                                <a href="{% url 'customer:order-list' %}">{% trans "Your Courses" %}</a>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Mapa <i class=""></i></a>
+                            <li class="submenu {% if active_tab == 'wishlists' %}active{% endif %}">
+                                <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
                             </li>
-                              <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Tus Cursos <i class=""></i></a>
+                            <li class="submenu {% if active_tab == 'addresses' %}active{% endif %}">
+                                <a href="{% url 'customer:address-list' %}">{% trans "Address Book" %}</a>
                             </li>
-                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Calendario <i class=""></i></a>
+                            <li class="submenu {% if active_tab == 'emails' %}active{% endif %}">
+                                <a href="{% url 'customer:email-list' %}">{% trans "Email History" %}</a>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Chat<i class=""></i></a>
+                            {% comment %}
+                            <li class="submenu {% if active_tab == 'alerts' %}active{% endif %}">
+                                <a href="{% url 'customer:alerts-list' %}">{% trans "Product Alerts" %"</a>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">Bandeja de Entrada<i class=""></i></a>
-                            </li>
-                             <li class="submenu hidden-lg hidden-md">
-                                <a href="javascript:void(0);" class="show-submenu">Salir <i class="icon-lock"></i></a>
+                            {% endcomment %}
+                            <li class="submenu {% if active_tab == 'notifications' %}active{% endif %}">
+                                <a href="{% url 'customer:notifications-inbox' %}">{% trans "Notifications" %}</a>
                             </li>
                         </ul>
                     </div><!-- End main-menu -->
@@ -195,7 +195,7 @@
 <div id="position2">
     	<div class="container">
                 	<ul>
-                    <li>CONVIERTE EN MENTOR</li>
+                    <li>Create a course</li>
                     </ul>
         </div>
     </div><!-- Position -->
