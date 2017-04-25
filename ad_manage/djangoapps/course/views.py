@@ -1,10 +1,15 @@
 from django.utils.translation import ugettext_lazy as _
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse_lazy
+
 from django.views.generic import TemplateView
 from formtools.wizard.views import SessionWizardView
+
 
 from .forms import CourseDummyForm
 
 from oscar.core.loading import get_model
+from customer.perms_becomementor import second_step, first_step, active_mentor
 
 FORMS_CREATE_WIZARD = [
         ("step1", CourseDummyForm),
@@ -66,6 +71,16 @@ class CourseListIndexTemplateView(TemplateView):
 class CourseCreateView(SessionWizardView):
 
     form_list = FORMS_CREATE_WIZARD
+    complete_profile_url = reverse_lazy("customeri:become-mentor-step1")
+
+    def get(self, request, *args, **kwargs):
+        if (active_mentor(self.request.user)):
+            self.storage.reset()
+            # reset the current step to the first step.
+            self.storage.current_step = self.steps.first
+            return self.render(self.get_form())
+        else:
+            return HttpResponseRedirect(self.complete_profile_url)
 
     def get_template_names(self):
         return [TEMPLATES_CREATE_WIZARD[self.steps.current]]

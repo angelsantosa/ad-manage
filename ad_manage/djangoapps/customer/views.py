@@ -25,6 +25,7 @@ class CustomerMentorCompleteProfileStepOne(FormView):
     step_2_url = reverse_lazy("customeri:become-mentor-step2")
 
     success_url = reverse_lazy("customeri:become-mentor-step2")
+    create_course_url = reverse_lazy("course-create")
 
     editable = False
 
@@ -35,7 +36,7 @@ class CustomerMentorCompleteProfileStepOne(FormView):
          #Handles GET requests and instantiates a blank version of the form.
 
         if (active_mentor(self.request.user)):
-            return HttpResponseRedirect(self.get_next_step_url())
+            return HttpResponseRedirect(self.create_course_url)
         else:
             form = self.get_form()
             return self.render_to_response(self.get_context_data(form=form))
@@ -94,12 +95,15 @@ class CustomerMentorCompleteProfileStepTwo(FormView):
 
     template_name = 'customer/complete_profile_step2.html'
     form_class = StepTwoForm
-    success_url = "/"
+    success_url = 'customer/complete_profile_done.html'
+
+    create_course_url = reverse_lazy("course-create")
+
     def get(self, request, *args, **kwargs):
          #Handles GET requests and instantiates a blank version of the form.
 
         if (active_mentor(self.request.user)):
-            return HttpResponseRedirect("/lul")
+            return HttpResponseRedirect(self.create_course_url)
         else:
             form = self.get_form()
             return self.render_to_response(self.get_context_data(form=form))

@@ -7,10 +7,8 @@ def first_step(user):
     u = user
 
     if (u.email and u.first_name and u.last_name and p.gender and p.country_name and p.about_me and p.birth_date):
-        print ("i tru")
         return True
     else:
-        print ("i fols")
         return False
 
 def active_mentor(user):
