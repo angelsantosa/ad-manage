@@ -1,0 +1,314 @@
+{% load staticfiles i18n %}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="PAGE CONTENT DESCRIPTION">
+    <meta name="author" content="erichdez.com">
+    <title>PASO 1 - Mentor</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="{% static 'tpl2/img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{% static 'tpl2/img/apple-touch-icon-57x57-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{% static 'tpl2/img/apple-touch-icon-72x72-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{% static 'tpl2/img/apple-touch-icon-114x114-precomposed.png' %}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{% static 'tpl2/img/apple-touch-icon-144x144-precomposed.png' %}">
+
+    <!-- CSS -->
+    <link href="{% static 'tpl2/css/base.css' %}" rel="stylesheet">
+     <!-- Radio and check inputs -->
+    <link href="{% static 'tpl2/css/skins/square/grey.css' %}" rel="stylesheet">
+
+    <!-- Google web fonts -->
+   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+   <link href="http://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" type="text/css">
+   <link href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+      <script src="{% static 'tpl2/js/html5shiv.min.js"></script>
+      <script src="{% static 'tpl2/js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>html, body {height: 100%;}</style>
+  </head>
+<body>
+
+<!--[if lte IE 8]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
+<![endif]-->
+
+    <div id="preloader">
+        <div class="sk-spinner sk-spinner-wave">
+            <div class="sk-rect1"></div>
+            <div class="sk-rect2"></div>
+            <div class="sk-rect3"></div>
+            <div class="sk-rect4"></div>
+            <div class="sk-rect5"></div>
+        </div>
+    </div>
+    <!-- End Preload -->
+
+    <div class="layer"></div>
+    <!-- Mobile menu overlay mask -->
+
+    <!-- Header================================================== -->
+    <header id="plain" style="border-bottom:1px solid #ddd;">
+        <div id="top_line">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="logo_header"><img src="{% static 'tpl2/img/logo_e.png' %}" alt="logo" data-src="{% static 'tpl2/img/logo.png' %}" data-src-retina="{% static 'tpl2/img/logo_2x.png' %}" width="48" height="46"></div>
+                    </div>
+                    <div class="search-overlay-menu-btn hidden-sm">
+                    <input type="text"  autocomplete="off" name="field-keywords" class="icon-search-6" id="search_box" placeholder="¿Qué te gustaría aprender?">
+                    <div class="nav-submit-button">
+                       </div>
+					</div>
+                    <div class="col-md-9 col-sm-9 col-xs-9">
+                        <ul id="top_links">
+                         <li>
+                         <a href="#" id="button">
+                          <button class="btn_1 btn-xs">Publica tu Curso</button></a></li>
+                          <li><a href="#" id="messages"> Mensajes</a></li>
+                           <li><a href="#" id="help_link">Ayuda</a></li>
+                            <li class="dropdown dropdown-access">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profiel_main">
+                                   <img src="{% static 'tpl2/img/guide_2.jpg' %}" alt="Image" class="img-circle speaker" height="34" width="34">
+                                    <strong>Nombre</strong><span class="hidden-sm"> Apellido</span></a>
+                                        <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="icon-user-1"></i>
+                                        <span>Editar Perfil</span>
+                                        </a></li>
+                                        <li><a href="#"><i class="icon-cog"></i>
+                                        <span>Configuración</span>
+                                        </a></li>
+                                        <li><a href="#"><i class="icon-user-add"></i>
+                                        <span>Invita a tus Amigos</span>
+                                        </a></li>
+                                        <li><a href="#"><i class=" icon-list-alt"></i>
+                                        <span>Tus Cursos</span>
+                                        </a></li>
+                                        <li><a href="#"><i class="icon-magic"></i>
+                                        <span>Wishlist</span>
+                                        </a></li>
+                                        <div class="divider"></div>
+                                        <li><a href="#"><i class="icon-left-1"></i>
+                                        <span>Salir</span>
+                                        </a></li>
+                                        </ul>
+                                <!-- End Profile -->
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- End row -->
+            </div><!-- End container-->
+        </div><!-- End top line-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-3">
+                     <div id="logo_home">
+                    	<h1 class="hidden-lg visible-sm visible-xs"><a href="index.html" title="echarli"></a></h1>
+                    </div>
+                </div>
+                <nav class="col-md-9 col-sm-9 col-xs-9">
+                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                    <div class="main-menu">
+                        <div id="header_menu">
+                            <img src="{% static 'tpl2/img/logo_2x.png' %}" width="160" height="34" alt="logo" data-retina="true">
+                        </div>
+                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+                        <ul>
+                           <li class="submenu hidden-lg hidden-md"><!-- hidden Profile options solo para menu mobile-->
+                                <a href="javascript:void(0);" class="show-submenu">Perfil <i class="icon-down-open-mini"></i></a><ul>
+                                    <li><a href="index.html">Editar Perfil</a></li>
+                                    <li><a href="#">Configuración</a></li>
+                                    <li><a href="#">Invita Amigos</a></li>
+                                    <li><a href="#">Tus Cursos</a></li>
+                                    <li><a href="#">Whishlist</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);">Home <i class=""></i></a>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Perfil <i class=""></i></a>
+                            </li>
+                             <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Amigos <i class=""></i></a>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Mapa <i class=""></i></a>
+                            </li>
+                              <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Tus Cursos <i class=""></i></a>
+                            </li>
+                             <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Calendario <i class=""></i></a>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Chat<i class=""></i></a>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">Bandeja de Entrada<i class=""></i></a>
+                            </li>
+                             <li class="submenu hidden-lg hidden-md">
+                                <a href="javascript:void(0);" class="show-submenu">Salir <i class="icon-lock"></i></a>
+                            </li>
+                        </ul>
+                    </div><!-- End main-menu -->
+                    <ul id="top_tools">
+                        <li>
+                            <div class="dropdown dropdown-search hidden-lg hidden-md ">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></a>
+                                <div class="dropdown-menu">
+                                    <form>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Buscar...">
+                                            <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" style="margin-left:0;">
+                                            <i class="icon-search"></i>
+                                            </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        	<di></di>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div><!-- container -->
+    </header><!-- End Header -->
+
+<section id="sub-header">
+</section><!-- End section -->
+
+<div id="position2">
+    	<div class="container">
+                	<ul>
+                    <li>CONVIERTE EN MENTOR</li>
+                    </ul>
+        </div>
+    </div><!-- Position -->
+
+<div class="container margin_60">
+            {% block container %}{% endblock %}
+</div><!-- End container -->
+
+<footer>
+      		<div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-3">
+                    <ul>
+                    <li><a href="#"><img src="{% static 'tpl2/img/echarli_footer_logo.png' %}" alt="image" class="img-responsive"></a></li>
+                    </ul>
+                    <a href="mailto:s" id="email_footer">info@echarli.com</a>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <h3>Información Gral</h3>
+                    <ul>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Políticas de Privacidad</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                         <li><a href="#">Terminos y condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <h3>Descarga Nuestra App</h3>
+                        <ul>
+                        <li><a href="#"><img src="{% static 'tpl2/img/appstore.png' %}" alt="image"></a></li>
+                        <li><a href="#"><img src="{% static 'tpl2/img/play.png' %}" alt="image" class="img-responsive"></a></li>
+                        </ul>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                    <h3></h3>
+                    <div class="styled-select">
+                        <select class="form-control" name="lang" id="lang">
+                            <option value="English" selected>English</option>
+                            <option value="French">French</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Russian">Russian</option>
+                        </select>
+                    </div>
+                    <div class="styled-select">
+                        <select class="form-control" name="currency" id="currency">
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="RUB">RUB</option>
+                        </select>
+                    </div>
+                </div>
+            </div><!-- End row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="social_footer">
+                        <h3>Síguenos en nuestras Redes Sociales</h3>
+                        <ul>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-google"></i></a></li>
+                            <li><a href="#"><i class="icon-instagram"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        </ul>
+                        <p>© eCharli 2017</p>
+                    </div>
+                </div>
+            </div><!-- End row -->
+        </div><!-- End container -->
+    </footer><!-- End footer -->
+
+<div id="toTop"></div><!-- Back to top button -->
+<div id="overlay"></div><!-- Mask on input focus -->
+
+<!-- Modal Ejemplo 1a -->
+<div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleLabel" aria-hidden="true">
+<div class="modal-dialog">
+		<div class="modal-content modal-popup">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myReviewLabel">Ejemplo 1 a</h4>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="assets/review_restaurant.php" name="review_restaurant" id="review_restaurant">
+					<a href="#" title="Photo title"><img src="img/sample.jpg" alt="Image" class="img-responsive"></a>
+					<hr>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- End Modal Ejemplo 1a -->
+
+<!-- Common scripts -->
+<script src="{% static 'tpl2/js/jquery-1.11.2.min.js' %}"></script>
+<script src="{% static 'tpl2/js/common_scripts_min.js' %}"></script>
+<script src="{% static 'tpl2/js/functions.js' %}"></script>
+<script src="{% static 'tpl2/js/icheck.js' %}"></script>
+
+
+<!-- Specific scripts -->
+<!-- Cat nav mobile -->
+<script  src="{% static 'tpl2/js/cat_nav_mobile.js' %}"></script>
+<script>$('#cat_nav').mobileMenu();</script>
+
+<script>
+$('input').iCheck({
+   checkboxClass: 'icheckbox_square-grey',
+   radioClass: 'iradio_square-grey'
+ });
+ </script>
+
+  </body>
+</html>
