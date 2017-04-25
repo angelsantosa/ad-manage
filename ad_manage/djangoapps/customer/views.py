@@ -95,7 +95,7 @@ class CustomerMentorCompleteProfileStepTwo(FormView):
 
     template_name = 'customer/complete_profile_step2.html'
     form_class = StepTwoForm
-    success_url = 'customer/complete_profile_done.html'
+    success_url = '/'
 
     create_course_url = reverse_lazy("course-create")
 
