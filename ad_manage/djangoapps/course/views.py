@@ -1,7 +1,28 @@
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import TemplateView
+from formtools.wizard.views import SessionWizardView
+
+from .forms import CourseDummyForm
 
 from oscar.core.loading import get_model
+
+FORMS_CREATE_WIZARD = [
+        ("step1", CourseDummyForm),
+        ("step2", CourseDummyForm),
+        ("step3", CourseDummyForm),
+        ("step4", CourseDummyForm),
+        ("step5", CourseDummyForm),
+        ("step6", CourseDummyForm),
+         ]
+
+TEMPLATES_CREATE_WIZARD = {
+            "step1": "course/create/step1.html",
+            "step2": "course/create/step2.html",
+            "step3": "course/create/step3.html",
+            "step4": "course/create/step4.html",
+            "step5": "course/create/step5.html",
+            "step6": "course/create/step6.html",
+             }
 
 CourseStock = get_model("partner", "StockRecord")
 Course = get_model("catalogue", "Product")
@@ -40,3 +61,14 @@ class CourseListIndexTemplateView(TemplateView):
             courses.append(course_data)
 
         return courses
+
+
+class CourseCreateView(SessionWizardView):
+
+    form_list = FORMS_CREATE_WIZARD
+
+    def get_template_names(self):
+        return [TEMPLATES_CREATE_WIZARD[self.steps.current]]
+
+    def done(self, form_list, **kwargs):
+        print("lul")
