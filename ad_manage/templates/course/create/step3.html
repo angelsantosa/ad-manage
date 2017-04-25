@@ -1,0 +1,130 @@
+{% extends "new_base.html" %}
+{% load staticfiles i18n %}
+
+{% block container %}
+
+<div class="row">
+<aside class="col-lg-3 col-md-3">
+    <div class="box_style_cat">
+        <ul id="cat_nav">
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Datos Básicos <span class="pull-right">Paso 1</span></a></li>
+            <li><a href="#" class="active" ><i class="icon-ok-circled"></i>Tipo de Curso<span class="pull-right">Paso 2</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Duración<span class="pull-right">Paso 3</span></a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Ubicación</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Pago</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Fotos</a></li>
+        </ul>
+    </div>
+
+</aside><!--End aside -->
+<div class="col-lg-9 col-md-9" id="faq">
+<div class="box_style_1">
+<h4>Duración, Días y Horarios</h4>
+<p>Seleccionar Calendario</p>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+  <label><i class="icon-calendar-7"></i> Incio de Curso</label>
+  <input class="date-pick form-control" data-date-format="M d, D" type="text">
+</div>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <label><i class="icon-calendar"></i> Fin de Curso</label>
+    <input class="date-pick form-control" data-date-format="M d, D" type="text">
+  </div>
+</div>
+<div class="col-md-8 col-sm-8">
+        <div class="title">
+     <h5> Del Martes <strong> Día Mes Año </strong> al Jueves <strong>Día Mes Año</strong></h5>
+     </div>
+</div>
+</div><!-- end  days -->
+<hr>
+<div class="col-md-12 col-sm-12">
+<div class="row">
+<div class="col-md-12 col-sm-12">
+  <div class="form_title">
+    <h3><strong><i class="icon-clock-1"></i></strong>Días</h3>
+  </div>
+  <div class="step">
+      <div class="text-center">
+<ul class="pagination">
+<li><a href="#">L</a></li>
+<li class="active"><a href="#">M</a></li>
+<li><a href="#">M</a></li>
+<li><a href="#">J</a></li>
+<li><a href="#">V</a></li>
+<li><a href="#">S</a></li>
+<li><a href="#">D</a></li>
+</ul>
+</div><!-- end pagination-->
+<div class="box_style_1">
+        <h3>Horario</h3>
+<div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="form-group">
+            <label><i class="icon-clock"></i> Comienza</label>
+            <input class="time-pick form-control" value="07:00 AM" type="text">
+        </div>
+      </div>
+        <div class="col-md-6 col-sm-6">
+              <div class="form-group">
+                  <label><i class="icon-clock"></i> Termina</label>
+                   <input class="time-pick form-control" value="12:00 PM" type="text">
+              </div>
+           </div>
+      </div>
+       <table class="table table_summary">
+<tbody>
+<tr>
+    <td>
+        Los Martes de <strong>11:30 hrs</strong>
+    </td>
+    <td class="text-right">
+        A las <strong>13:00 hrs</strong>
+    </td>
+</tr>
+<tr>
+    <td>
+        Los Miercoles de <strong>18:00 hrs</strong>
+    </td>
+    <td class="text-right">
+        A Las <strong>19:30 hrs</strong>
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+  </div><!-- line steps -->
+ </div><!-- col 8 days -->
+</div>
+</div>
+
+
+<div class="text-center add_bottom_30">
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {% if wizard.form.forms %}
+        {{ wizard.form.management_form }}
+        {% for form in wizard.form.forms %}
+            {{ form }}
+        {% endfor %}
+    {% else %}
+        {{ wizard.form }}
+    {% endif %}
+
+    {% if wizard.steps.prev %}
+    <button name="wizard_goto_step" class="btn_1 medium" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous step" %}</button>
+    {% endif %}
+    <input type="submit" class="btn_1 medium" value="{% trans "Save and Continue " %}"/>
+  </form>
+</div>
+
+</div><!-- bx style -->
+</div><!-- End col lg-9 -->
+</div><!-- End row -->
+{% endblock %}

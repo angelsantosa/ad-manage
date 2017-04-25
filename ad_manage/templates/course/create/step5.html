@@ -1,0 +1,107 @@
+{% extends "new_base.html" %}
+{% load staticfiles i18n %}
+
+{% block container %}
+
+<div class="row">
+<aside class="col-lg-3 col-md-3">
+    <div class="box_style_cat">
+        <ul id="cat_nav">
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Datos Básicos <span class="pull-right">Paso 1</span></a></li>
+            <li><a href="#" class="active" ><i class="icon-ok-circled"></i>Tipo de Curso<span class="pull-right">Paso 2</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Duración<span class="pull-right">Paso 3</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Ubicación<span class="pull-right">Paso 4</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Pago<span class="pull-right">Paso 5</span></a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Fotos</a></li>
+        </ul>
+    </div>
+
+</aside><!--End aside -->
+<div class="col-lg-9 col-md-9" id="faq">
+<section id="section-3">
+<div class="col-md-12 col-sm-12">
+<div class="pull-right booking_buttons"><a href="#0" class="btn_2">Consejos</a>
+</div>
+<h4>Ayuda a tus Aprendices a tomar tu curso y gana más dinero.</h4>
+<p>Establece una tarifa para tu curso; puedes establecer un precio en el que tengas en cuenta el curso, materiales, nivel de dificultad.</p>
+
+<div class="form-group col-md-6 col-sm-6 col-xs-12">
+      <label>Precio por Aprendiz</label>
+      <input type="text" name="code" value="" placeholder="Escribe la tarifa que quieras" class="form-control">
+    </div>
+    <div class="form-group col-md-3 col-sm-3">
+      <label>Moneda <sup>*</sup></label>
+      <select name="currency" class="form-control">
+        <option value="MXN" selected>MXN</option>
+        <option value="USD">USD</option>
+        <option value="GBP">GBP</option>
+        <option value="EUR">EUR</option>
+        <option value="CAD">CAD</option>
+      </select>
+    </div>
+
+
+
+<div class="col-md-6 col-sm-6">
+    <div class="box_style_1">
+        <h4>¿Cuánto te gustaría ganar?</h4>
+          <table class="table table_summary">
+<tbody>
+<tr>
+<td>
+Precio por Aprendiz
+</td>
+<td class="text-right">
+$300
+</td>
+</tr>
+<tr>
+  <td>
+  Numero de Aprendices
+  </td>
+<td class="form-group-sm col-md-6 col-sm-6 col-xs-12">
+<input type="text" id="aprendiz" name="numer" class="form-control">
+</td>
+</tr>
+<tr class="total">
+<td>
+Podrías Ganar
+</td>
+<td class="text-right">
+  $1200
+</td>
+</tr>
+</tbody>
+</table>
+<p>Esta cantidad es la que ganarias ya con el descuento del 20% correspondiente a las <strong>tarifas de servicio de Echarli.</strong> </p>
+
+    </div>
+    </div>
+     </div>
+</section>
+
+<div class="text-center add_bottom_30">
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {% if wizard.form.forms %}
+        {{ wizard.form.management_form }}
+        {% for form in wizard.form.forms %}
+            {{ form }}
+        {% endfor %}
+    {% else %}
+        {{ wizard.form }}
+    {% endif %}
+
+    {% if wizard.steps.prev %}
+    <button name="wizard_goto_step" class="btn_1 medium" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous step" %}</button>
+    {% endif %}
+    <input type="submit" class="btn_1 medium" value="{% trans "Save and Continue " %}"/>
+  </form>
+</div>
+
+
+
+</div><!-- End col lg-9 -->
+</div><!-- End row -->
+{% endblock %}

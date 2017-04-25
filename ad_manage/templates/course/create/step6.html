@@ -1,0 +1,157 @@
+{% extends "new_base.html" %}
+{% load staticfiles i18n %}
+
+{% block container %}
+
+<div class="row">
+<aside class="col-lg-3 col-md-3">
+    <div class="box_style_cat">
+        <ul id="cat_nav">
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Datos Básicos <span class="pull-right">Paso 1</span></a></li>
+            <li><a href="#" class="active" ><i class="icon-ok-circled"></i>Tipo de Curso<span class="pull-right">Paso 2</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Duración<span class="pull-right">Paso 3</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Ubicación<span class="pull-right">Paso 4</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Pago<span class="pull-right">Paso 5</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Fotos<span class="pull-right">Paso 6</span></a></li>
+        </ul>
+    </div>
+     <div class="box_style_2 col hidden-xs hidden-md">
+    <img class="pull-right" src="img/mentor-1.png" alt="Image">
+    <h4>LISTO</h4>
+    <p>YA ERES MENTOR</p>
+    </div>
+
+</aside><!--End aside -->
+<div class="col-lg-9 col-md-9" id="faq">
+<h2>Ayuda a tus Aprendices a tomar tu curso y gana más dinero.</h2>
+  <p>Explica a los aprendices como es tu. Explica cuales son los principales atractivos de tu curso para atraer la atencion de los aprendices
+  que quieren tomarlo.</p>
+  <section id="section-3">
+    <div class="row">
+    <div class="col-md-12">
+      <h4>Fotos del Curso</h4>
+<div class="form-inline upload_1">
+<div class="form-group">
+<input type="file" name="files[]" id="js-upload-files" multiple>
+</div>
+<button type="submit" class="btn_1" id="js-upload-submit"><i class="icon-upload"></i>Subir Archivo</button>
+</div>
+    </div>
+      <div class="col-md-6">
+      <div class="title">
+        <h3>Galería</h3>
+      </div>
+</div>
+</div>
+  </section>
+
+<div class="col-md-4 col-sm-4">
+<div class="row">
+<div class="container-fluid">
+<!-- Drop Zone -->
+<h5>Agrega tu Foto Principal</h5>
+<div class="upload-drop-zone" id="drop-zone">
+<i class="icon-plus-circle-1"></i>Just drag and drop files here
+</div>
+<!-- Photo Name title -->
+<div class="form-group">
+<input type="text" name="code" value="" placeholder="Añadir Titulo" class="form-control">
+</div>
+<!-- Progress Bar Goes Here -->
+
+<!-- Upload Finished  Goes Here-->
+
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-4">
+<div class="row">
+<div class="container-fluid">
+<!-- Drop Zone -->
+<h5>Agrega una foto</h5>
+<div class="upload-drop-zone" id="drop-zone2">
+<i class="icon-plus-circle-1"></i>Just drag and drop files here
+</div>
+<!-- Photo Name title -->
+<div class="form-group">
+<input type="text" name="code" value="" placeholder="Añadir Titulo" class="form-control">
+</div>
+<!-- Progress Bar goes here -->
+
+<!-- Upload Finished goes here-->
+
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-4">
+<div class="row">
+<div class="container-fluid">
+<!-- Drop Zone -->
+<h5>Agrega una foto</h5>
+<div class="upload-drop-zone" id="drop-zone3">
+<i class="icon-plus-circle-1"></i> Arrastre y suelte los archivos
+</div>
+<!-- Photo Name title -->
+<div class="form-group">
+<input type="text" name="code" value="" placeholder="Añadir Titulo" class="form-control">
+</div>
+<!-- Progress Bar goes here -->
+
+<!-- Upload Finished  goes here-->
+
+</div>
+</div>
+</div>
+
+<div class="col-md-12 col-sm-12">
+<div class="form-group">
+  <label>Embbed Video URL <img src="img/vimeo_icon_blue.png" alt="Image" data-retina="true" width="20" height="20">
+  <img src="img/YouTube-social-icon_red_24px.png" alt="Image" data-retina="true"></label>
+  <p>Colcoa el "link" de un video donde describas bremente el curso que publicaras, recuerda que sea breve y con informacion detallada.</p>
+  <input type="url" id="place" name="pin-place" class="form-control" placeholder="Ingresa el URL de tu video">
+</div>
+</div>
+<div class="col-md-12">
+         <div class="form-group">
+          <h4>Título</h4>
+          <input type="text" id="description" class="form-control" placeholder="Describe el titulo">
+          <small>Max.xxxcaracteres</small>
+          <small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver ejemplo</a></small>
+     </div>
+  </div>
+    <div class="col-md-12">
+         <div class="form-group">
+          <h4>Descripcion</h4>
+          <textarea name="description_text" id="description_activity" class="form-control" style="height:100px"></textarea>
+          <small>Max.xxxcaracteres</small>
+          <small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver ejemplo</a></small>
+     </div>
+</div>
+
+<section class="section">
+   <div class="text-center add_bottom_30">
+     <form class="" action="" method="post">
+       {% csrf_token %}
+       {{ wizard.management_form }}
+       {% if wizard.form.forms %}
+           {{ wizard.form.management_form }}
+           {% for form in wizard.form.forms %}
+               {{ form }}
+           {% endfor %}
+       {% else %}
+           {{ wizard.form }}
+       {% endif %}
+
+       {% if wizard.steps.prev %}
+       <button name="wizard_goto_step" class="btn_1 medium" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous step" %}</button>
+       {% endif %}
+       <input type="submit" class="btn_1 medium" value="{% trans "Save and Continue " %}"/>
+     </form>
+</div>
+</section>
+
+
+
+</div><!-- End col lg-9 -->
+</div><!-- End row -->
+{% endblock %}

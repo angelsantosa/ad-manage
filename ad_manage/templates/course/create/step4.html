@@ -1,0 +1,200 @@
+{% extends "new_base.html" %}
+{% load staticfiles i18n %}
+
+{% block container %}
+
+<div class="row">
+<aside class="col-lg-3 col-md-3">
+    <div class="box_style_cat">
+        <ul id="cat_nav">
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Datos Básicos <span class="pull-right">Paso 1</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Tipo de Curso<span class="pull-right">Paso 2</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Duración<span class="pull-right">Paso 3</span></a></li>
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Ubicación<span class="pull-right">Paso 4</span></a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Pago</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Fotos</a></li>
+        </ul>
+    </div>
+
+</aside><!--End aside -->
+<div class="col-lg-9 col-md-9" id="faq">
+<section id="section-3">
+<div class="row">
+<div class="col-md-12">
+<div class="table-responsive">
+<h4>Tipo de Curso</h4>
+<label>Seleccionar</label>
+            <div class="general_icons">
+    <ul class="steps">
+    <li class="current"><a href="#"><i class="icon-location"></i>APRENDIZ</a></li>
+    <li><a href="#" class="active"><i class="icon-pin-1"></i>MENTOR</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="col-md-8">
+<div class="title">
+<h4>Lugar Público</h4>
+</div>
+</div>
+<div class="col-md-12">
+<table class="table_2">
+<thead>
+  <tr>
+    <th><input type="checkbox">Café</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Parque</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Centro Comercial</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Plaza Pública</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Otro</th>
+  </tr>
+</thead>
+</table>
+</div>
+<div class="col-md-8">
+<div class="title">
+<h4>Lugar Propio</h4>
+</div>
+</div>
+<div class="col-md-12">
+<table class="table_2">
+<thead>
+  <tr>
+    <th><input type="checkbox">Casa</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Oficina</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Escuela</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox" checked value="">Otro</th>
+  </tr>
+</thead>
+</table>
+</div>
+<div class="col-md-8 col-sm-8">
+<div class="form-group">
+<label>Describe el Lugar</label>
+<input type="text" class="form-control" id="name_place" name="Place" placeholder="Describe el punto en donde se realizara el curso">
+</div>
+</div>
+<div class="col-md-6 col-sm-6">
+<div class="form-group">
+  <label><i class="icon-location-5"></i>Ingresa Tu Ubicación</label>
+  <input type="text" id="place" name="pin-place" class="form-control" placeholder="Ingresa tu Ubicación">
+</div>
+</div>
+     <div class="col-md-12">
+     <div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="form-group">
+  <label>País</label>
+  <select class="form-control" name="country" id="country">
+    <option value="" selected>Selecciona tu país</option>
+    <option value="Europe">Europe</option>
+    <option value="America">México</option>
+    <option value="Asia">Asia</option>
+  </select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 col-sm-6">
+<div class="form-group">
+  <label>Calle</label>
+  <input type="text" id="street_1" name="street_1" class="form-control">
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+  <label>Num. Ext</label>
+  <input type="text" id="street_2" name="street_2" class="form-control">
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+  <label>Num. Int</label>
+  <input type="text" id="street_3" name="street_3" class="form-control">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+  <label>Colonia</label>
+  <input type="text" id="place2" name="place" class="form-control">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+  <label>Ciudad</label>
+  <input type="text" id="city_booking" name="city_booking" class="form-control">
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+  <label>Estado</label>
+  <input type="text" id="state_booking" name="state_booking" class="form-control">
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+  <label>Codigo Postal</label>
+  <input type="text" id="postal_code" name="postal_code" class="form-control">
+</div>
+</div>
+</div><!--End row -->
+
+</div>
+
+<hr>
+
+<div class="col-md-12">
+<div id="map" class="map"></div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+          <h4>Como Llegar</h4>
+          <textarea name="description_text" id="description_3" class="form-control" style="height:100px" placeholder="Describe que hay cerca o  entre que calles para ubicar a tu aprendiz"></textarea>
+</div>
+</div>
+
+
+</div> <!--row content -->
+</section> <!-- section end -->
+
+<div class="text-center add_bottom_30">
+  <form class="" action="" method="post">
+    {% csrf_token %}
+    {{ wizard.management_form }}
+    {% if wizard.form.forms %}
+        {{ wizard.form.management_form }}
+        {% for form in wizard.form.forms %}
+            {{ form }}
+        {% endfor %}
+    {% else %}
+        {{ wizard.form }}
+    {% endif %}
+
+    {% if wizard.steps.prev %}
+    <button name="wizard_goto_step" class="btn_1 medium" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous step" %}</button>
+    {% endif %}
+    <input type="submit" class="btn_1 medium" value="{% trans "Save and Continue " %}"/>
+  </form>
+</div>
+
+</div><!-- End col lg-9 -->
+</div><!-- End row -->
+{% endblock %}

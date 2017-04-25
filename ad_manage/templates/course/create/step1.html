@@ -1,0 +1,212 @@
+{% extends "new_base.html" %}
+{% load staticfiles i18n %}
+
+{% block container %}
+<div class="row">
+<aside class="col-lg-3 col-md-3">
+    <div class="box_style_cat">
+        <ul id="cat_nav">
+            <li><a href="#" class="active"><i class="icon-ok-circled"></i>Datos Básicos <span class="pull-right">Paso 1</span></a></li>
+            <li><a href="#" ><i class="icon-ok-circled2"></i>Tipo de Curso</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Duración</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Ubicación</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Pago</a></li>
+            <li><a href="#"><i class="icon-ok-circled2"></i>Fotos</a></li>
+        </ul>
+    </div>
+
+</aside><!--End aside -->
+<div class="col-lg-9 col-md-9" id="faq">
+<h2>Ayuda a tus Aprendices a tomar tu curso y gana más dinero.</h2>
+<p>Explica a los aprendices como es tu curso. Explica cuales son los principales atractivos de tu curso para atraer la atencion de los aprencides que quieren tomarlo.</p>
+<section id="section-3">
+<div class="row">
+<div class="col-md-6 col-sm-6 add_bottom_30">
+<h4>Nombre del Curso</h4>
+<div class="form-group">
+<label>Escribe el Titulo del Curso</label>
+<input class="form-control" name="first_name" id="first_name" type="text" placeholder="Escribe el titulo del curso">
+<small>Max.xxxcaracteres</small>
+<small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver Ejemplo</a></small>
+</div>
+</div>
+<div class="col-md-6 col-sm-6 add_bottom_30">
+<h4>Slogan</h4>
+<div class="form-group">
+<label>Escribe un slogan atractivo para tus aprendices.</label>
+<input class="form-control" name="slogan_name" id="slogan_name" type="slogan" placeholder="Escribe tu slogan">
+<small>Max.xxxcaracteres</small>
+<small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver ejemplo</a></small>
+</div>
+</div>
+<div class="col-md-12">
+<h4>Descripción del Curso</h4>
+<div class="form-group">
+<label>Escribe el Titulo del Curso</label>
+<textarea name="review_text" id="review_text" class="form-control" style="height:100px" placeholder="Describe tu Curso"></textarea>
+<small>Max.xxxcaracteres</small>
+<small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver ejemplo</a></small>
+</div>
+</div>
+<div class="col-md-6 col-sm-6 add_bottom_30">
+<h4>Categoría</h4>
+<div class="form-group">
+<label>Seleciona la categoria del curso para especificar.</label>
+<select  id="categorie" class="form-control" name="categorie1">
+<option value="#">Artes</option>
+            <option value="#">Humanidades</option>
+            <option value="#">Ciencias</option>
+</select>
+</div>
+</div>
+<div class="col-md-6 col-sm-6 add_bottom_30">
+<h4>Subcategoria <span> (Opcional)</span></h4>
+<div class="form-group">
+<label>Selecciona la subcategoria del curso para especificar.</label>
+<select id="subcategorie" class="form-control" name="subcategorie">
+  <option value="#">Historia del Arte</option>
+  <option value="#">Filosofia</option>
+  <option value="#">Matematicas</option>
+</select>
+</div>
+</div>
+
+<div class="col-md-6 col-sm-6">
+<h4>Idioma</h4>
+<div class="form-group">
+  <label>Selecciona el idioma que sera impartido el curso.</label>
+  <select class="form-control" name="lenguage" id="lenguage">
+    <option value="" selected>Selecciona un idioma</option>
+    <option value="Latino">Español</option>
+    <option value="United states">Ingles</option>
+    <option value="Asia">Chino</option>
+  </select>
+</div>
+</div>
+<div class="col-md-12">
+<h4>Presentate</h4>
+<div class="form-group">
+<label>Platica brevemente quien eres y porque quieres dar este curso.</label>
+<textarea name="description_text" id="description" class="form-control" style="height:100px" placeholder="Describete Brevemente"></textarea>
+<small>Max.xxxcaracteres</small>
+<small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver ejemplo</a></small>
+</div>
+</div>
+<div class="col-md-12">
+<h4>Que Incluye</h4>
+<div class="table-responsive">
+<table  class="table">
+<label>A continuación selecciona las siguientes cosas que están incluidas en el curso.</label>
+  <thead>
+              <tr>
+                <th><input type="checkbox" name="option_1" id="option_1" checked value="">Transporte</th>
+                <th class="active">TRANSPORTE</th>
+                <th class="active">Descripción: Autobuses Saliendo del Zocalo 3pm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <thead>
+              <tr>
+                <th><input type="checkbox" name="option_2" id="option_2" checked value="">Comida</th>
+                <th class="active">COMIDA</th>
+                <th class="active">Descripción: Incluye un desayuno por sesión</th>
+              </tr>
+            </thead>
+               <thead>
+              <tr>
+                <th><input type="checkbox" name="option_3" id="option_3" checked value="">Refrigerios</th>
+                <th class="#"></th>
+                <th class="#"></th>
+              </tr>
+            </thead>
+            </tbody>
+      </table>
+</div>
+</div><!-- end included -->
+
+
+<div class="col-md-12">
+<div class="form-group">
+<textarea name="description_text" id="description_text" class="form-control" style="height:100px" placeholder="Describete que esta incluido en el curso, que refrigerios"></textarea>
+<small>Max.xxxcaracteres</small>
+</div>
+</div>
+
+<div class="col-md-12">
+<table class="table_2">
+<thead>
+  <tr>
+    <th><input type="checkbox">Entradas a Lugares</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Alojamiento</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Equipo</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">Otro (Especifica)</th>
+  </tr>
+  <tr>
+    <th><input type="checkbox">No se incluye nada</th>
+  </tr>
+</thead>
+</table>
+</div>
+<hr>
+<section>
+<div class="col-md-12">
+<div class="form-title">
+  <h3>Que se necesita <small class="pull-right"><a href="#" data-toggle="modal" data-target="#example">Ver Ejemplo</a></small></h3>
+  <p>Describe todo lo que necesite el Aprendiz para realizar el curso</p>
+</div>
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <div class="form-group">
+    <input type="text" name="code" value="" placeholder="Introduce nuevo material" class="form-control">
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="form-inline upload_1">
+  <h2><a href="#" type="file" name="files[]" id="js-upload-files" multiple><i class="icon-plus"></i>AÑADIR NUEVO ELEMENTO</a></h2>
+       </div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+  <label><input type="checkbox" name="policy_terms" id="policy_terms">No es necesario traer nada, yo proporcionare todo.</label>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<hr>
+
+</div> <!--row content -->
+</section> <!-- section end -->
+
+<div class="text-center add_bottom_30">
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ wizard.management_form }}
+  {% if wizard.form.forms %}
+      {{ wizard.form.management_form }}
+      {% for form in wizard.form.forms %}
+          {{ form }}
+      {% endfor %}
+  {% else %}
+      {{ wizard.form }}
+  {% endif %}
+
+  {% if wizard.steps.prev %}
+  <button name="wizard_goto_step" class="btn_1 medium" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous step" %}</button>
+  {% endif %}
+  <input type="submit" class="btn_1 medium" value="{% trans "Save and Continue " %}"/>
+</form>
+
+</div>
+
+</div><!-- End col lg-9 -->
+</div><!-- End row -->
+{% endblock %}
