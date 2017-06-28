@@ -12,6 +12,13 @@ Cargar el ambiente:
 ------------
 
 source ~/.virtualenvs/ad_manage_env /bin/activate
+
+Instalación
+============
+
+* pip install --upgrade setuptools pip
+* pip install path.py
+* pip install -r requirements/local.txt
  
 Compilar CSS (se utiliza SASS  de Ruby)
 ------------
