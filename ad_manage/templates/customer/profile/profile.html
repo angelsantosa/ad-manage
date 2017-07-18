@@ -6,16 +6,17 @@
 <div class="row">
   <div class="col-md-4">
       <h3>Primer bloque de datos</h3>
-      {{ user.customer_profile.get_avatar  }}
-      {{ user.get_full_name|default:'-' }}
+      <ul>
+        <li>Avatar: {{ user.customer_profile.get_avatar  }}</li>
+        <li>Fullname: {{ user.get_full_name|default:'-' }}</li>
 
-      {# se hace pequenia codnicional para mostrar cierto boton #}
-
-      {% if user.customer_profile.is_mentor %}
-          <a href="{% url 'customeri:become-mentor-step1' %}" class="btn_full_outline">{% trans "Create a course" %}</a>
-          {% else %}
-          <a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Become a mentor" %}</a>
-      {% endif %}
+        {% if user.customer_profile.is_mentor %}
+        {# se hace pequenia codnicional para mostrar cierto boton #}
+            <li><a href="{% url 'customeri:become-mentor-step1' %}" class="btn_full_outline">{% trans "Create a course" %}</a></li>
+            {% else %}
+            <li><a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Become a mentor" %}</a></li>
+        {% endif %}
+      </ul>
   </div>
 
   <div class="col-md-4">
