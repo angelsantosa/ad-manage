@@ -128,35 +128,24 @@ class CustomerProfile(models.Model):
 
 	@property
 	def is_aprentice(self):
-		"""
-		Convenience method that returns a boolean indicating
-		the user is Aprentice.
-		"""
 		return int(self.status) == self.APPRENTICE
 
 	@property
 	def is_active_mentor(self):
-		"""
-		Convenience method that returns a boolean indicating
-		the user is Mentor.
-		"""
+
 		return True if int(self.status) == self.MENTOR else False
 
 	@property
 	def is_candidate(self):
-		"""
-		Convenience method that returns a boolean indicating
-		the user is Mentor.
-		"""
+
 		return int(self.status) == self.CANDIDATE
 
 	@property
 	def is_mentor(self):
-		"""
-		Convenience method that returns a boolean indicating
-		the user is Mentor.
-		"""
 		return int(self.status) > self.APPRENTICE
+
+	def get_user_status(self):
+		return self.PROFILE_STATUS_CHOICES[self.status]
 
 	@property
 	def is_profile_complete(self):
