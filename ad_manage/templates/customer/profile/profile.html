@@ -1,0 +1,51 @@
+{% extends "customer/baseaccountpage.html" %}
+
+{% load i18n %}
+
+{% block tabcontent %}
+<div class="row">
+  <div class="col-md-4">
+      <ul>
+        <li><img width="60" src="{{ user.customer_profile.get_avatar  }}" alt="{{ user.customer_profile.get_avatar  }}"></li>
+        <li>Fullname: <b>{{ user.get_full_name|default:'-' }}</b></li>
+
+        {% if user.customer_profile.is_mentor %}
+        {# se hace pequenia codnicional para mostrar cierto boton #}
+            <li><a href="{% url 'customeri:become-mentor-step1' %}" class="btn_full_outline">{% trans "Create a course" %}</a></li>
+            {% else %}
+            <li><a href="{% url 'become-mentor' %}" class="btn_full_outline">{% trans "Become a mentor" %}</a></li>
+        {% endif %}
+      </ul>
+  </div>
+
+  <div class="col-md-4">
+
+    <ul>
+      <li>Tiene perfil completo?: <b>{{ user.customer_profile.is_profile_complete }}</b></li>
+      <li>Es mentor activo?: <b>{{ user.customer_profile.is_active_mentor }}</b></li>
+      <li>Estado del usuario?: <b>{{user.customer_profile.get_user_status }}</b></li>
+    </ul>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <li>Anio de nacimiento: <b>{{ user.customer_profile.birth_date }}</b></li>
+    <li>Genero: <b>{{ user.customer_profile.gender }}</b></li>
+    <li>Acerca de: <b>{{ user.customer_profile.about_me }}</b></li>
+    <li>Pais: <b>{{ user.customer_profile.country_name }}</b></li>
+    <li>Telefono: <b>{{ user.customer_profile.phone }}</b></li>
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    {% include "customer/profile/profile_wishlists.html" %}
+
+  </div>
+
+</div>
+{% endblock %}
