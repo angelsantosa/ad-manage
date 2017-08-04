@@ -1,4 +1,5 @@
 from oscar.apps.customer.views import AccountRegistrationView as CoreAccountRegistrationView
+
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import redirect
@@ -8,14 +9,16 @@ from .models import CustomerDocument, CustomerProfile
 from document_manager.models import Document
 from .perms_becomementor import second_step, first_step, active_mentor
 
-
 from .forms import EmailUserCreationForm, StepOneForm, StepTwoForm
 
 # Create your views here or die.
 
 class AccountRegistrationView(CoreAccountRegistrationView):
-    form_class = EmailUserCreationForm
 
+    def get_context_data(self, *args, **kwargs):
+        ctx = super(AccountRegistrationView, self).get_context_data(
+            *args, **kwargs)
+        return ctx
 
 class CustomerMentorCompleteProfileStepOne(FormView):
 
