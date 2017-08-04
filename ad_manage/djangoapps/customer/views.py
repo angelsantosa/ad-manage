@@ -1,4 +1,4 @@
-from oscar.apps.customer.views import AccountRegistrationView as CoreAccountRegistrationView
+from oscar.apps.customer.views import ProfileView as CoreProfileView
 
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
@@ -13,12 +13,17 @@ from .forms import EmailUserCreationForm, StepOneForm, StepTwoForm
 
 # Create your views here or die.
 
-class AccountRegistrationView(CoreAccountRegistrationView):
+class ProfileView(CoreProfileView):
 
     def get_context_data(self, *args, **kwargs):
-        ctx = super(AccountRegistrationView, self).get_context_data(
+        ctx = super(ProfileView, self).get_context_data(
             *args, **kwargs)
+        ctx['wishlists'] = self.get_wishlists_queryset()
         return ctx
+
+    def get_wishlists_queryset(self):
+        return self.request.user.wishlists.all()
+
 
 class CustomerMentorCompleteProfileStepOne(FormView):
 
