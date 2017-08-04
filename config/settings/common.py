@@ -300,69 +300,6 @@ OSCAR_DEFAULT_CURRENCY = 'MXN'
 OSCAR_SHOP_NAME = 'eCharli'
 OSCAR_SHOP_TAGLINE = 'Teaching the world'
 
-from django.utils.translation import ugettext_lazy as _
-OSCAR_DASHBOARD_NAVIGATION = [
-    {
-        'label': _('Dashboard'),
-        'icon': 'icon-th-list',
-        'url_name': 'dashboard:index',
-    },
-    {
-        'label': _('Fulfilment'),
-        'icon': 'icon-shopping-cart',
-        'children': [
-            {
-                'label': _('Course Orders'),
-                'url_name': 'dashboard:order-list',
-            },
-            {
-                'label': _('Statistics'),
-                'url_name': 'dashboard:order-stats',
-            },
-            {
-                'label': _('Mentors'),
-                'url_name': 'dashboard:partner-list',
-            },
-            # The shipping method dashboard is disabled by default as it might
-            # be confusing. Weight-based shipping methods aren't hooked into
-            # the shipping repository by default (as it would make
-            # customising the repository slightly more difficult).
-            # {
-            #     'label': _('Shipping charges'),
-            #     'url_name': 'dashboard:shipping-method-list',
-            # },
-        ]
-    },
-    {
-        'label': _('Customers'),
-        'icon': 'icon-group',
-        'children': [
-            {
-                'label': _('Customers'),
-                'url_name': 'dashboard:users-index',
-            },
-            {
-                'label': _('Stock alert requests'),
-                'url_name': 'dashboard:user-alert-list',
-            },
-        ]
-    },
-    {
-        'label': _('Offers'),
-        'icon': 'icon-bullhorn',
-        'children': [
-            {
-                'label': _('Offers'),
-                'url_name': 'dashboard:offer-list',
-            },
-            {
-                'label': _('Vouchers'),
-                'url_name': 'dashboard:voucher-list',
-            },
-        ],
-    },
-]
-
 ############################# MENTOR RECEIPT UPLOAD #############################
 
 # MENTOR RECEIPT CONFIG
