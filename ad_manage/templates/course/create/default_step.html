@@ -1,0 +1,29 @@
+{% extends "new_base.html" %}
+{% load staticfiles i18n %}
+
+{% block container %}
+
+<div class="row">
+  <div class="col-md-12" id="faq">
+    <form class="" action="" method="post">
+      {% csrf_token %}
+      {{ wizard.management_form }}
+      {% if wizard.form.forms %}
+          {{ wizard.form.management_form }}
+          {% for form in wizard.form.forms %}
+              {{ form.as_p }}
+          {% endfor %}
+      {% else %}
+          {{ wizard.form.as_p }}
+      {% endif %}
+
+      {% if wizard.steps.prev %}
+      <button name="wizard_goto_step" class="btn_1 medium" type="submit" value="{{ wizard.steps.prev }}">{% trans "Previous step" %}</button>
+      {% endif %}
+      <input type="submit" class="btn_1 medium" value="{% trans "Save and Continue " %}"/>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}
